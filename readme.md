@@ -1,6 +1,7 @@
-# Nom du Projet
+# Projet "TRACKING" - Partie FRONT - Daher HUB OUEST
 
-[Insérez ici une brève description de votre projet]
+Ce projet a pour but de créer une interface pour les chefs d'équipes, Teams Leaders et Responsables Magasins afin qu'ils puissent contrôler
+le relevé automatique des heures effectués par les opérateurs au fil de la journée.
 
 ## Table des matières
 - [Introduction](#introduction)
