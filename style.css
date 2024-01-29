@@ -433,3 +433,20 @@ body{
 .moitie + .moitie {
   box-shadow: -1px 0 0 #ccc;
 }
+
+table {
+  border-collapse: collapse;
+}
+
+th, td {
+  border: 1px solid #dddddd;
+  padding: 6px;
+  text-align: center;
+  cursor: default;
+}
+th {
+  background-color: #f2f2f2;
+}
+tr:hover {
+  background-color: #f2f2f6;
+}

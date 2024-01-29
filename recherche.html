@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+	<!-- en-tête -->
+	<head>
+		<title>Recherche &bull; TRACKING</title>
+		<meta charset="UTF-8"/>
+		<link href="https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css" rel='stylesheet'>
+		<link rel="stylesheet" href="style.css">
+		<link type="images/png" rel="shortcut icon" href="img/logotypes/white-logo.png">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	</head>
+	
+	<!-- page -->
+	<body>
+		<!-- menu sur le côté -->
+		<div class="sidebar close">
+			<div class="logo-details">
+				<a href="index.html">
+					<i class='bx bx-bar-chart-square' title="TRACKING &bull; DAHER Hub Ouest"></i>
+					<span class="logo_name">TRACKING</span>
+				</a>
+			</div>
+			<ul class="nav-links">
+				<li>
+					<a href="index.html">
+						<i class='bx bxs-dashboard'></i>
+						<span class="link_name">Dashboard</span>
+					</a>
+					<ul class="sub-menu blank">
+						<li><a class="link_name" href="index.html">Dashboard</a></li>
+					</ul>
+				</li>
+				<li>
+					<div class="iocn-link">
+						<a href="recherche.html">
+							<i class='bx bx-search-alt'></i>
+							<span class="link_name">Recherche</span>
+						</a>
+						<i class='bx bxs-chevron-down arrow' ></i>
+					</div>
+					<ul class="sub-menu">
+						<li><a class="link_name" href="recherche.html">Recherche</a></li>
+						<li><a href="">Par activité "défaut"</a></li>
+						<li><a href="">Par responsable</a></li>
+					</ul>
+				</li>
+				<li>
+					<div class="iocn-link">
+						<a href="">
+							<i class='bx bx-target-lock'></i>
+							<span class="link_name">Suivi</span>
+						</a>
+						<i class='bx bxs-chevron-down arrow' ></i>
+					</div>
+					<ul class="sub-menu">
+						<li><a class="link_name" href="">Suivi</a></li>
+						<li><a href="">Récep. / Rang. / Expé.</a></li>
+						<li><a href="">Picking</a></li>
+						<li><a href="">Consolidation</a></li>
+						<li><a href="">Kardex</a></li>
+						<li><a href="">Gestion ord.</a></li>
+						<li><a href="">Tamaris</a></li>
+						<li><a href="">Quais distribution</a></li>
+					</ul>
+				</li>
+				<li>
+					<a href="">
+						<i class='bx bx-error'></i>
+						<span class="link_name">Anomalies</span>
+					</a>
+					<ul class="sub-menu blank">
+						<li><a class="link_name" href="">Anomalies</a></li>
+					</ul>
+				</li>
+				<li>
+					<a href="">
+						<i class='bx bx-ghost' ></i>
+						<span class="link_name">Absences</span>
+					</a>
+					<ul class="sub-menu blank">
+						<li><a class="link_name" href="">Absences</a></li>
+					</ul>
+				</li>
+				<li>
+					<a href="support.html">
+						<i class='bx bxs-buoy'></i>
+						<span class="link_name">Support</span>
+					</a>
+					<ul class="sub-menu blank">
+						<li><a class="link_name" href="support.html">Support</a></li>
+					</ul>
+				</li>
+			</ul>
+		</div>
+		
+		<!-- contenu de la page -->
+		<section class="home-section">
+			<!-- Nom de page -->
+			<div class="home-content">
+				<i class='bx bx-menu' ></i>
+				<span class="text"><i class='bx bxs-search' title="Recherche"></i> &bull; Recherche</span>
+			</div>
+            
+            <!-- Bloc contenant le pop-up d'aide d'ajout d'effectif -->
+			<div class="box" id="accueil-popup">
+				<div class="cardText">
+					<div class="cardHeader">
+						<h2><span style="color:red; font-weight: bolder;">[INFO]</span> &bull; Aide "ajout effectif"</h2>
+					</div>
+					<p>
+                        <a href="" class="txtLink" title="add_ope.pdf"><b><u>Cliquez-ici</u></b></a> pour obtenir la documentation liée à l'ajout d'un nouvel opérateur dans la base de données.
+					</p>
+					<div class="close-button">
+						<span class="close" onclick="closePopup()"><i class='bx bx-x-circle' title="Fermer le pop-up"></i></span>
+					</div>
+				</div>
+				<br>
+			</div>
+            <div class="box">
+                <div class="cardText">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Matricule</th>
+                                <th>Nom</th>
+                                <th>Prénom</th>
+                                <th>NG</th>
+                                <th>Contrat</th>
+                                <th>Début</th>
+                                <th>Fin</th>
+                                <th>H. théo. hebdo.</th>
+                                <th>Responsable</th>
+                                <th>Activité par défaut</th>
+                                <th>Avancement</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>709079</td>
+                                <td>ASCARGOTA</td>
+                                <td>Antonio</td>
+                                <td>AASCM2E8</td>
+                                <td>CDI</td>
+                                <td>26/10/2023</td>
+                                <td>X</td>
+                                <td>35 h</td>
+                                <td>GASCOIN L.</td>
+                                <td>Picking</td>
+                                <td>87%</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+			<br>
+			<!-- pied de page -->
+			<div class="box">
+				<div class="cardText" style="text-align: center;">
+					<p><b><a href="index.html" class="txtLink"><i class='bx bxs-bar-chart-square' title="TRACKING &bull; DAHER Hub Ouest"></i> TRACKING</b></a> &bull; 2023 - 2024, Tous droits réservés. Ce site est affilié à <a href="https://www.daher.com/" class="txtLink">DAHER SA <b>&copy;</b></a></p>
+					<p><b><a href="#" class="txtLink">Support</a> &bull; <a href="https://bit.ly/3f9Zk8d" class="txtLink">Politique de confidentialité</a></b></p>
+					<a href="https://www.daher.com/"><img src="img/logotypes/daher.png" alt="Logo DAHER SA" class="daher"></a>
+				</div>
+			</div>
+		</section>
+		
+		<!-- lien vers le javascript -->
+		<script src="app.js"></script>
+	</body>
+</html>

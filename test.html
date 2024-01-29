@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Page de test</title>
+        <style>
+            table {
+                border-collapse: collapse;
+                width: 100%;
+            }
+            
+            th, td {
+                border: 1px solid #dddddd;
+                text-align: left;
+                padding: 8px;
+            }
+            
+            th {
+                background-color: #f2f2f2;
+            }
+        </style>
+    </head>
+    <body>
+        <!-- Liste déroulante -->
+        <label for="pays">Choisir un pays :</label>
+        <select id="pays" name="pays">
+            <option value="france">&emsp;</option>
+            <option value="france">France</option>
+            <option value="espagne">Espagne</option>
+            <option value="italie">Italie</option>
+            <option value="allemagne">Allemagne</option>
+            <option value="royaume-uni">Royaume-Uni</option>
+        </select>
+
+        <!-- Test tableau des effectifs -->
+        <table>
+            <thead>
+                <tr>
+                    <th>Matricule</th>
+                    <th>Nom</th>
+                    <th>Prénom</th>
+                    <th>NG</th>
+                    <th>Début contrat</th>
+                    <th>Fin contrat</th>
+                    <th>Contrat</th>
+                    <th>Heures théoriques hebdomadaires</th>
+                    <th>Mail</th>
+                    <th>Responsable</th>
+                    <th>Activité par défaut</th>
+                    <th>Avancement journée</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>001</td>
+                    <td>Dupont</td>
+                    <td>Jean</td>
+                    <td>NG123</td>
+                    <td>01/01/2022</td>
+                    <td>31/12/2022</td>
+                    <td>CDI</td>
+                    <td>35</td>
+                    <td>jean.dupont@email.com</td>
+                    <td>Responsable1</td>
+                    <td>Activité1</td>
+                    <td>En cours</td>
+                </tr>
+            </tbody>
+        </table>
+    </body>
+</html>
