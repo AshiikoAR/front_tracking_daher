@@ -5,6 +5,14 @@
   box-sizing: border-box;
   font-family: 'Poppins', sans-serif;
 }
+body {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; /* 100% de la hauteur de la fenêtre */
+}
+
 .sidebar{
   position: fixed;
   top: 0;
