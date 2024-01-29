@@ -5,12 +5,12 @@
   box-sizing: border-box;
   font-family: 'Poppins', sans-serif;
 }
-body {
+body{
   margin: 0;
   padding: 0;
   display: flex;
   flex-direction: column;
-  min-height: 100vh; /* 100% de la hauteur de la fenêtre */
+  min-height: 100vh;
 }
 
 .sidebar{
@@ -225,8 +225,8 @@ body {
 .sidebar .profile-details .job{
   font-size: 12px;
 }
-.home-section{
-  flex:1;
+.home-section {
+  flex: 1;
   position: relative;
   background: #E4E9F7;
   left: 260px;
@@ -418,10 +418,4 @@ body {
 .close-button:hover
 {
   color:#1DA1F2;
-}
-
-#footer {
-  width: 100%;
-  position: sticky;
-  bottom: 0;
 }

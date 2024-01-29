@@ -35,7 +35,3 @@ document.addEventListener("DOMContentLoaded", function () {
       });
     });
   });
-
-document.addEventListener("DOMContentLoaded", function () {
-  document.querySelector("#footer").style.position = "sticky";
-});
