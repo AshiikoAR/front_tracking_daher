@@ -419,3 +419,17 @@ body{
 {
   color:#1DA1F2;
 }
+
+.colonnes {
+  display: flex;
+  width: 100%;
+}
+
+.moitie {
+  flex: 1;
+  padding: 10px;
+}
+
+.moitie + .moitie {
+  box-shadow: -1px 0 0 #ccc;
+}
