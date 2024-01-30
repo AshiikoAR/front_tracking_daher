@@ -12,12 +12,16 @@
             
             th, td {
                 border: 1px solid #dddddd;
-                text-align: left;
+                text-align: center;
                 padding: 8px;
             }
             
             th {
                 background-color: #f2f2f2;
+            }
+
+            input::placeholder {
+                text-align: center;
             }
         </style>
     </head>
@@ -25,7 +29,7 @@
         <!-- Liste déroulante -->
         <label for="pays">Choisir un pays :</label>
         <select id="pays" name="pays">
-            <option value="france">&emsp;</option>
+            <option value="neant">--</option>
             <option value="france">France</option>
             <option value="espagne">Espagne</option>
             <option value="italie">Italie</option>
@@ -33,38 +37,104 @@
             <option value="royaume-uni">Royaume-Uni</option>
         </select>
 
+        <br><br>
+        <!-- Test input-->
+        <label for="input-ex">Recherche : </label>
+        <input type="text" placeholder="Rechercher un effectif" size="22">
+
+        <br><br>
         <!-- Test tableau des effectifs -->
         <table>
             <thead>
                 <tr>
                     <th>Matricule</th>
-                    <th>Nom</th>
-                    <th>Prénom</th>
+                    <th>NOM &middot; Prénom</th>
                     <th>NG</th>
-                    <th>Début contrat</th>
-                    <th>Fin contrat</th>
                     <th>Contrat</th>
-                    <th>Heures théoriques hebdomadaires</th>
-                    <th>Mail</th>
-                    <th>Responsable</th>
+                    <th>Début</th>
+                    <th>Fin</th>
+                    <th>H. théo. hebdo.</th>
                     <th>Activité par défaut</th>
                     <th>Avancement journée</th>
                 </tr>
             </thead>
             <tbody>
                 <tr>
-                    <td>001</td>
-                    <td>Dupont</td>
-                    <td>Jean</td>
-                    <td>NG123</td>
-                    <td>01/01/2022</td>
-                    <td>31/12/2022</td>
+                    <td>709079</td>
+                    <td>ASCARGOTA Antonio</td>
+                    <td>AASCM2E8</td>
                     <td>CDI</td>
-                    <td>35</td>
-                    <td>jean.dupont@email.com</td>
-                    <td>Responsable1</td>
-                    <td>Activité1</td>
-                    <td>En cours</td>
+                    <td>26/10/2023</td>
+                    <td>X</td>
+                    <td>35 h/semaine</td>
+                    <td>Picking</td>
+                    <td>87%</td>
+                </tr>
+                <tr>
+                    <td>555555</td>
+                    <td>BASMAYER Fabienne</td>
+                    <td>FBASWKZ3</td>
+                    <td>Intérimaire</td>
+                    <td>22/11/2021</td>
+                    <td>X</td>
+                    <td>35 h/semaine</td>
+                    <td>Picking</td>
+                    <td>107%</td>
+                </tr>
+                <tr style="background-color: darkgray;">
+                    <td>202859</td>
+                    <td>BUIGET Katia</td>
+                    <td>NG52E65</td>
+                    <td>CDI</td>
+                    <td>01/01/2021</td>
+                    <td>X</td>
+                    <td>35 h/semaine</td>
+                    <td>Picking</td>
+                    <td><span style="color:red; font-weight: bolder;">[Opérateur absent]</span></td>
+                </tr>
+                <tr>
+                    <td>707532</td>
+                    <td>BLANCHOT Margot</td>
+                    <td>MBLAQ5RG</td>
+                    <td>Intérimaire</td>
+                    <td>22/05/2023</td>
+                    <td>X</td>
+                    <td>35 h/semaine</td>
+                    <td>Picking</td>
+                    <td>96%</td>
+                </tr>
+                <tr style="background-color: darkgray;">
+                    <td>222222</td>
+                    <td>BODO Emeline</td>
+                    <td>SP0033E6</td>
+                    <td>Intérimaire</td>
+                    <td>13/09/2021</td>
+                    <td>14/04/2023</td>
+                    <td>35 h/semaine</td>
+                    <td>Picking</td>
+                    <td><span style="color:red; font-weight: bolder;">[Contrat à terme]</span></td>
+                </tr>
+                <tr>
+                    <td>8100255</td>
+                    <td>BRIZARD Cassandra</td>
+                    <td>CBRIR85N</td>
+                    <td>Intérimaire</td>
+                    <td>28/02/2022</td>
+                    <td>30/06/2024</td>
+                    <td>35 h/semaine</td>
+                    <td>Picking</td>
+                    <td>77%</td>
+                </tr>
+                <tr>
+                    <td>200882</td>
+                    <td>CHAUVET Nathalie</td>
+                    <td>NG66A86</td>
+                    <td>CDI</td>
+                    <td>29/01/2023</td>
+                    <td>X</td>
+                    <td>35 h/semaine</td>
+                    <td>Picking</td>
+                    <td>92%</td>
                 </tr>
             </tbody>
         </table>

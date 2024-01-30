@@ -420,33 +420,55 @@ body{
   color:#1DA1F2;
 }
 
-.colonnes {
+.colonnes
+{
   display: flex;
   width: 100%;
 }
 
-.moitie {
+.moitie
+{
   flex: 1;
   padding: 10px;
 }
 
-.moitie + .moitie {
+.moitie + .moitie
+{
   box-shadow: -1px 0 0 #ccc;
 }
 
-table {
+table 
+{
   border-collapse: collapse;
 }
 
-th, td {
+th, td 
+{
   border: 1px solid #dddddd;
   padding: 6px;
   text-align: center;
   cursor: default;
 }
-th {
+th 
+{
   background-color: #f2f2f2;
 }
-tr:hover {
+tr:hover
+{
   background-color: #f2f2f6;
+}
+
+.search-hover
+{
+  text-decoration: none;
+  color: #000;
+}
+
+.search-hover:hover
+{
+  text-decoration: underline;
+}
+
+input::placeholder {
+  text-align: center;
 }
