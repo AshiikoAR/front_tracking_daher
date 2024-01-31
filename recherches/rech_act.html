@@ -1,0 +1,600 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+	<!-- en-tête -->
+	<head>
+		<title>Recherche &bull; TRACKING</title>
+		<meta charset="UTF-8"/>
+		<link href="https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css" rel='stylesheet'>
+		<link rel="stylesheet" href="../style.css">
+		<link type="images/png" rel="shortcut icon" href="../img/logotypes/white-logo.png">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	</head>
+	
+	<!-- page -->
+	<body>
+		<!-- menu sur le côté -->
+		<div class="sidebar close">
+			<div class="logo-details">
+				<a href="index.html">
+					<i class='bx bx-bar-chart-square' title="TRACKING &bull; DAHER Hub Ouest"></i>
+					<span class="logo_name">TRACKING</span>
+				</a>
+			</div>
+			<ul class="nav-links">
+				<li>
+					<a href="index.html">
+						<i class='bx bxs-dashboard'></i>
+						<span class="link_name">Dashboard</span>
+					</a>
+					<ul class="sub-menu blank">
+						<li><a class="link_name" href="index.html">Dashboard</a></li>
+					</ul>
+				</li>
+                <li>
+					<div class="iocn-link">
+						<a href="../recherche.html">
+							<i class='bx bx-search-alt'></i>
+							<span class="link_name">Recherche</span>
+						</a>
+						<i class='bx bxs-chevron-down arrow' ></i>
+					</div>
+					<ul class="sub-menu">
+						<li><a class="link_name" href="#">Recherche</a></li>
+						<li><a href="#">Liste des opérateurs</a></li>
+						<li><a href="rech_act.html">Liste des activités</a></li>
+					</ul>
+				</li>
+				<li>
+					<div class="iocn-link">
+						<a href="">
+							<i class='bx bx-target-lock'></i>
+							<span class="link_name">Suivi</span>
+						</a>
+						<i class='bx bxs-chevron-down arrow' ></i>
+					</div>
+					<ul class="sub-menu">
+						<li><a class="link_name" href="">Suivi</a></li>
+						<li><a href="">Récep. / Rang. / Expé.</a></li>
+						<li><a href="">Picking</a></li>
+						<li><a href="">Consolidation</a></li>
+						<li><a href="">Kardex</a></li>
+						<li><a href="">Gestion ord.</a></li>
+						<li><a href="">Tamaris</a></li>
+						<li><a href="">Quais distribution</a></li>
+					</ul>
+				</li>
+				<li>
+					<a href="">
+						<i class='bx bx-error'></i>
+						<span class="link_name">Anomalies</span>
+					</a>
+					<ul class="sub-menu blank">
+						<li><a class="link_name" href="">Anomalies</a></li>
+					</ul>
+				</li>
+				<li>
+					<a href="">
+						<i class='bx bx-ghost' ></i>
+						<span class="link_name">Absences</span>
+					</a>
+					<ul class="sub-menu blank">
+						<li><a class="link_name" href="">Absences</a></li>
+					</ul>
+				</li>
+				<li>
+					<a href="support.html">
+						<i class='bx bxs-buoy'></i>
+						<span class="link_name">Support</span>
+					</a>
+					<ul class="sub-menu blank">
+						<li><a class="link_name" href="support.html">Support</a></li>
+					</ul>
+				</li>
+			</ul>
+		</div>
+		
+		<!-- contenu de la page -->
+		<section class="home-section">
+			<!-- Nom de page -->
+			<div class="home-content">
+				<i class='bx bx-menu' ></i>
+				<span class="text"><i class='bx bxs-search' title="Recherche"></i> &bull; <a href="../recherche.html" class="search-hover">Recherche</a> > Liste des activités</span>
+			</div>
+
+            <!-- Bloc contnant les paramètres de recherche d'activités -->
+            <div class="box">
+                <div class="cardText">
+					<table>
+						<thead>
+							<tr>
+								<th title="Filtrer par activités">
+									<label for="activites"><b><i class='bx bx-filter' ></i>&ensp;</b>
+										<select id="activites" name="activites">
+											<option value="none">--</option>
+											<option value="recep-rang-expe">Réception/Rangement/Expéditions</option>
+											<option value="picking">Picking</option>
+											<option value="consolidation">Consolidation</option>
+											<option value="kardex">Kardex</option>
+											<option value="gestion_ordo">Gestion ordonnancement</option>
+											<option value="tamaris">Tamaris</option>
+											<option value="quais-distrib">Quais distribution</option>
+										</select>
+									</label>
+								</th>
+								<th>
+									<input type="text" placeholder="Rechercher une sous-activité" size="30" id="recherche-effectif">
+								</th>
+								<th title="Trier par">
+									<label for="Trier par"><b><i class='bx bx-sort-alt-2'></i>&ensp;</b></label>
+									<select id="triListeOpe" onchange="trierTableau()">
+										<option value="4">ID croissant</option>
+										<option value="5">ID décroissant</option>
+                                        <option value="1">Ordre alphabétique NOM (A-Z)</option>
+										<option value="2">Ordre alphabétique Activité (A-Z)</option>
+										<option value="6">Ordre alphabétique Type (A-Z)</option>
+									</select>  
+								</th>
+							</tr>
+						</thead>
+					</table>
+                </div>
+            </div>
+
+            <!-- Bloc contenant le tableau des différentes sous-activités/activités-->
+            <div class="box">
+                <div class="cardText">
+                    <table id="table-aff">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Numéro BT</th>
+                                <th>Activité</th>
+                                <th>Sous-activité liée</th>
+                                <th>Type</th>
+                                <th>Indicateur de charge</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>1</td><td>SNL35039</td><td>Réception / Rangement / Expéditions</td><td>Accueil</td><td>Productif Cadencé</td><td>Nb colis trackés</td>
+                            </tr>
+                            <tr>
+                                <td>2</td><td>SPL32035</td><td>Réception / Rangement / Expéditions</td><td>Récept. IT MagAuto + Rang.</td><td>Productif Cadencé</td><td>Nb lignes réceptionnées</td>
+                            </tr>
+                            <tr>
+                                <td>3</td><td>SNL35039</td><td>Réception / Rangement / Expéditions</td><td>Récept. IT Pédestre</td><td>Productif Cadencé</td><td>Nb lignes réceptionnées</td>
+                            </tr>
+                            <tr>
+                                <td>5</td><td>SNL35039</td><td>Réception / Rangement / Expéditions</td><td>Speed Up</td><td>Productif Cadencé</td><td>Nb de speed up</td>
+                            </tr>
+                            <tr>
+                                <td>6</td><td>SNL35039</td><td>Réception / Rangement / Expéditions</td><td>Litiges Réception</td><td>Productif Cadencé</td><td>Nb litiges traités</td>
+                            </tr>
+                            <tr>
+                                <td>13</td><td>SNL35039</td><td>Réception / Rangement / Expéditions</td><td>DAR</td><td>Productif Non Cadencé</td><td><i class='bx bxs-x-square' title="Pas d'indicateur de charge" style="color:red;"></i></td>
+                            </tr>
+                            <tr>
+                                <td>14</td><td>SNL35039</td><td>Réception / Rangement / Expéditions</td><td>Milk-Run</td><td>Productif Non Cadencé</td><td><i class='bx bxs-x-square' title="Pas d'indicateur de charge" style="color:red;"></i></td>
+                            </tr>
+                            <tr>
+                                <td>15</td><td>SNL35006</td><td>Réception / Rangement / Expéditions</td><td>Chef d&#39;équipe</td><td>Encadrement</td><td><i class='bx bxs-x-square' title="Pas d'indicateur de charge" style="color:red;"></i></td>
+                            </tr>
+                            <tr>
+                                <td>16</td><td>SNL35005</td><td>Réception / Rangement / Expéditions</td><td>Team Leader</td><td>Support</td><td><i class='bx bxs-x-square' title="Pas d'indicateur de charge" style="color:red;"></i></td>
+                            </tr>
+                            <tr>
+                                <td>22</td><td>SNL35004</td><td>Réception / Rangement / Expéditions</td><td>Rang. Pédestre</td><td>Productif Cadencé</td><td>Nb BR rangés</td>
+                            </tr>
+                            <tr>
+                                <td>23</td><td>SNL35038</td><td>Réception / Rangement / Expéditions</td><td>Expé Série</td><td>Productif Cadencé</td><td>Nb colis expédiés</td>
+                            </tr>
+                            <tr>
+                                <td>24</td><td>SNL35052</td><td>Picking</td><td>Constitution</td><td>Productif Non Cadencé</td><td><i class='bx bxs-x-square' title="Pas d'indicateur de charge" style="color:red;"></i></td>
+                            </tr>
+                            <tr>
+                                <td>25</td><td>SPL33032</td><td>Picking</td><td>Picking MagAuto</td><td>Productif Cadencé</td><td>Nb lignes servies</td>
+                            </tr>
+                            <tr>
+                                <td>26</td><td>SNL35052</td><td>Picking</td><td>Picking Pédestre</td><td>Productif Non Cadencé</td><td>Nb lignes servies</td>
+                            </tr>
+                            <tr>
+                                <td>27</td><td>SNL35052</td><td>Consolidation</td><td>Consolidation</td><td>Productif Non Cadencé</td><td><i class='bx bxs-x-square' title="Pas d'indicateur de charge" style="color:red;"></i></td>
+                            </tr>
+                            <tr>
+                                <td>28</td><td>SNL35052</td><td>Quais Distribution</td><td>Quais Distribution</td><td>Productif Non Cadencé</td><td><i class='bx bxs-x-square' title="Pas d'indicateur de charge" style="color:red;"></i></td>
+                            </tr>
+                            <tr>
+                                <td>29</td><td>SNL35124</td><td>Kardex</td><td>Ré-Approvisionnement</td><td>Productif Cadencé</td><td>Nb lignes rangées</td>
+                            </tr>
+                            <tr>
+                                <td>30</td><td>SNL35124</td><td>Kardex</td><td>Remplissage Mallettes</td><td>Productif Cadencé</td><td>Nb mallettes remplies</td>
+                            </tr>
+                            <tr>
+                                <td>31</td><td>SNL35124</td><td>Kardex</td><td>Création/Modification/Maintenance/Suppression/Urgences</td><td>Productif Non Cadencé</td><td><i class='bx bxs-x-square' title="Pas d'indicateur de charge" style="color:red;"></i></td>
+                            </tr>
+                            <tr>
+                                <td>36</td><td>SPL32009</td><td>Kardex</td><td>Chef d&#39;équipe</td><td>Encadrement</td><td><i class='bx bxs-x-square' title="Pas d'indicateur de charge" style="color:red;"></i></td>
+                            </tr>
+                            <tr>
+                                <td>37</td><td>SPL32008</td><td>Kardex</td><td>Team Leader</td><td>Support</td><td><i class='bx bxs-x-square' title="Pas d'indicateur de charge" style="color:red;"></i></td>
+                            </tr>
+                            <tr>
+                                <td>39</td><td>SNL35037</td><td>Gestion ordonnancement</td><td>Ordo</td><td>Productif Non Cadencé</td><td><i class='bx bxs-x-square' title="Pas d'indicateur de charge" style="color:red;"></i></td>
+                            </tr>
+                            <tr>
+                                <td>40</td><td>SNL35037</td><td>Gestion ordonnancement</td><td>Clarification</td><td>Productif Cadencé</td><td>Nb lignes traitrées</td>
+                            </tr>
+                            <tr>
+                                <td>42</td><td>SNL35037</td><td>Gestion ordonnancement</td><td>Service Client</td><td>Productif Cadencé</td><td>Nb tickets traités</td>
+                            </tr>
+                            <tr>
+                                <td>43</td><td>SNL35037</td><td>Gestion ordonnancement</td><td>Chantier Transfert</td><td>Productif Non Cadencé</td><td><i class='bx bxs-x-square' title="Pas d'indicateur de charge" style="color:red;"></i></td>
+                            </tr>
+                            <tr>
+                                <td>44</td><td>SNL35037</td><td>Gestion ordonnancement</td><td>Messagerie Client</td><td>Productif Non Cadencé</td><td><i class='bx bxs-x-square' title="Pas d'indicateur de charge" style="color:red;"></i></td>
+                            </tr>
+                            <tr>
+                                <td>45</td><td>SNL35012</td><td>Gestion ordonnancement</td><td>Chef d&#39;équipe</td><td>Encadrement</td><td><i class='bx bxs-x-square' title="Pas d'indicateur de charge" style="color:red;"></i></td>
+                            </tr>
+                            <tr>
+                                <td>46</td><td>SNL35011</td><td>Gestion ordonnancement</td><td>Team Leader</td><td>Productif Non Cadencé</td><td><i class='bx bxs-x-square' title="Pas d'indicateur de charge" style="color:red;"></i></td>
+                            </tr>
+                            <tr>
+                                <td>47</td><td>SNL35037</td><td>Gestion ordonnancement</td><td>Réunion</td><td>Improductif</td><td><i class='bx bxs-x-square' title="Pas d'indicateur de charge" style="color:red;"></i></td>
+                            </tr>
+                            <tr>
+                                <td>48</td><td>SNL35038</td><td>Réception / Rangement / Expéditions</td><td>Réunion</td><td>Improductif</td><td><i class='bx bxs-x-square' title="Pas d'indicateur de charge" style="color:red;"></i></td>
+                            </tr>
+                            <tr>
+                                <td>49</td><td>SNL35007</td><td>Réception / Rangement / Expéditions</td><td>Délégation</td><td>Improductif</td><td><i class='bx bxs-x-square' title="Pas d'indicateur de charge" style="color:red;"></i></td>
+                            </tr>
+                            <tr>
+                                <td>50</td><td>SNL35038</td><td>Réception / Rangement / Expéditions</td><td>Formation</td><td>Improductif</td><td><i class='bx bxs-x-square' title="Pas d'indicateur de charge" style="color:red;"></i></td>
+                            </tr>
+                            <tr>
+                                <td>51</td><td>SNL35038</td><td>Réception / Rangement / Expéditions</td><td>Chantiers</td><td>Improductif</td><td><i class='bx bxs-x-square' title="Pas d'indicateur de charge" style="color:red;"></i></td>
+                            </tr>
+                            <tr>
+                                <td>52</td><td>SNL35038</td><td>Réception / Rangement / Expéditions</td><td>Autres</td><td>Improductif</td><td><i class='bx bxs-x-square' title="Pas d'indicateur de charge" style="color:red;"></i></td>
+                            </tr>
+                            <tr>
+                                <td>53</td><td>SNL35038</td><td>Réception / Rangement / Expéditions</td><td>Expé Rechange</td><td>Productif Cadencé</td><td>Nb colis expédiés</td>
+                            </tr>
+                            <tr>
+                                <td>54</td><td>SNL35039</td><td>Réception / Rangement / Expéditions</td><td>Administratif</td><td>Productif Non Cadencé</td><td><i class='bx bxs-x-square' title="Pas d'indicateur de charge" style="color:red;"></i></td>
+                            </tr>
+                            <tr>
+                                <td>57</td><td>SNL35009</td><td>Picking</td><td>Chef d&#39;équipe</td><td>Encadrement</td><td><i class='bx bxs-x-square' title="Pas d'indicateur de charge" style="color:red;"></i></td>
+                            </tr>
+                            <tr>
+                                <td>58</td><td>SPL32008</td><td>Picking</td><td>Team Leader</td><td>Support</td><td><i class='bx bxs-x-square' title="Pas d'indicateur de charge" style="color:red;"></i></td>
+                            </tr>
+                            <tr>
+                                <td>59</td><td>SNL35052</td><td>Picking</td><td>Réunion</td><td>Improductif</td><td><i class='bx bxs-x-square' title="Pas d'indicateur de charge" style="color:red;"></i></td>
+                            </tr>
+                            <tr>
+                                <td>60</td><td>SNL35010</td><td>Picking</td><td>Délégation</td><td>Improductif</td><td><i class='bx bxs-x-square' title="Pas d'indicateur de charge" style="color:red;"></i></td>
+                            </tr>
+                            <tr>
+                                <td>61</td><td>SNL35052</td><td>Picking</td><td>Formation</td><td>Improductif</td><td><i class='bx bxs-x-square' title="Pas d'indicateur de charge" style="color:red;"></i></td>
+                            </tr>
+                            <tr>
+                                <td>62</td><td>é voir avec CE</td><td>Picking</td><td>Chantiers</td><td>Improductif</td><td><i class='bx bxs-x-square' title="Pas d'indicateur de charge" style="color:red;"></i></td>
+                            </tr>
+                            <tr>
+                                <td>63</td><td>SNL35052</td><td>Picking</td><td>Autres</td><td>Improductif</td><td><i class='bx bxs-x-square' title="Pas d'indicateur de charge" style="color:red;"></i></td>
+                            </tr>
+                            <tr>
+                                <td>64</td><td>é voir avec CE</td><td>Kardex</td><td>Chantiers</td><td>Improductif</td><td><i class='bx bxs-x-square' title="Pas d'indicateur de charge" style="color:red;"></i></td>
+                            </tr>
+                            <tr>
+                                <td>65</td><td>é voir avec CE</td><td>Kardex</td><td>Autres</td><td>Improductif</td><td><i class='bx bxs-x-square' title="Pas d'indicateur de charge" style="color:red;"></i></td>
+                            </tr>
+                            <tr>
+                                <td>66</td><td>SNL35010</td><td>Kardex</td><td>Délégation</td><td>Improductif</td><td><i class='bx bxs-x-square' title="Pas d'indicateur de charge" style="color:red;"></i></td>
+                            </tr>
+                            <tr>
+                                <td>67</td><td>SNL35124</td><td>Kardex</td><td>Formation</td><td>Improductif</td><td><i class='bx bxs-x-square' title="Pas d'indicateur de charge" style="color:red;"></i></td>
+                            </tr>
+                            <tr>
+                                <td>68</td><td>SNL35124</td><td>Kardex</td><td>Réunion</td><td>Improductif</td><td><i class='bx bxs-x-square' title="Pas d'indicateur de charge" style="color:red;"></i></td>
+                            </tr>
+                            <tr>
+                                <td>69</td><td>SNL35053</td><td>Tamaris</td><td>Accueil</td><td>Productif Cadencé</td><td>Nb colis trackés</td>
+                            </tr>
+                            <tr>
+                                <td>70</td><td>SNL35053</td><td>Tamaris</td><td>Réception IT</td><td>Productif Cadencé</td><td>Nb lignes réceptionnées</td>
+                            </tr>
+                            <tr>
+                                <td>71</td><td>SNL35053</td><td>Tamaris</td><td>Rangement</td><td>Productif Cadencé</td><td>Nb BR rangés</td>
+                            </tr>
+                            <tr>
+                                <td>72</td><td>SNL35053</td><td>Tamaris</td><td>Autres</td><td>Improductif</td><td><i class='bx bxs-x-square' title="Pas d'indicateur de charge" style="color:red;"></i></td>
+                            </tr>
+                            <tr>
+                                <td>73</td><td>é voir avec CE</td><td>Tamaris</td><td>Chantiers</td><td>Improductif</td><td><i class='bx bxs-x-square' title="Pas d'indicateur de charge" style="color:red;"></i></td>
+                            </tr>
+                            <tr>
+                                <td>74</td><td>SNL31037</td><td>Tamaris</td><td>Délégation</td><td>Improductif</td><td><i class='bx bxs-x-square' title="Pas d'indicateur de charge" style="color:red;"></i></td>
+                            </tr>
+                            <tr>
+                                <td>75</td><td>SNL35053</td><td>Tamaris</td><td>Formation</td><td>Improductif</td><td><i class='bx bxs-x-square' title="Pas d'indicateur de charge" style="color:red;"></i></td>
+                            </tr>
+                            <tr>
+                                <td>76</td><td>SNL35053</td><td>Tamaris</td><td>Réunion</td><td>Improductif</td><td><i class='bx bxs-x-square' title="Pas d'indicateur de charge" style="color:red;"></i></td>
+                            </tr>
+                            <tr>
+                                <td>77</td><td>SNL35053</td><td>Tamaris</td><td>Picking Pédestre</td><td>Productif Cadencé</td><td>Nb lignes servies</td>
+                            </tr>
+                            <tr>
+                                <td>78</td><td>SNL35052</td><td>Picking</td><td>Picking Palettier</td><td>Productif Cadencé</td><td>Nb lignes servies</td>
+                            </tr>
+                            <tr>
+                                <td>79</td><td>SNL35004</td><td>Réception / Rangement / Expéditions</td><td>Rang. Palettier</td><td>Productif Cadencé</td><td>Nb BR rangés</td>
+                            </tr>
+                            <tr>
+                                <td>80</td><td>SNL35037</td><td>Gestion ordonnancement</td><td>Technicien Optimisation</td><td>Productif Non Cadencé</td><td><i class='bx bxs-x-square' title="Pas d'indicateur de charge" style="color:red;"></i></td>
+                            </tr>
+                            <tr>
+                                <td>86</td><td>SNL35052</td><td>Consolidation</td><td>Réunion</td><td>Improductif</td><td><i class='bx bxs-x-square' title="Pas d'indicateur de charge" style="color:red;"></i></td>
+                            </tr>
+                            <tr>
+                                <td>87</td><td>SNL35010</td><td>Consolidation</td><td>Délégation</td><td>Improductif</td><td><i class='bx bxs-x-square' title="Pas d'indicateur de charge" style="color:red;"></i></td>
+                            </tr>
+                            <tr>
+                                <td>88</td><td>SNL35052</td><td>Consolidation</td><td>Formation</td><td>Improductif</td><td><i class='bx bxs-x-square' title="Pas d'indicateur de charge" style="color:red;"></i></td>
+                            </tr>
+                            <tr>
+                                <td>89</td><td>é voir avec CE</td><td>Consolidation</td><td>Chantiers</td><td>Improductif</td><td><i class='bx bxs-x-square' title="Pas d'indicateur de charge" style="color:red;"></i></td>
+                            </tr>
+                            <tr>
+                                <td>90</td><td>é voir</td><td>Consolidation</td><td>Autres</td><td>Improductif</td><td><i class='bx bxs-x-square' title="Pas d'indicateur de charge" style="color:red;"></i></td>
+                            </tr>
+                            <tr>
+                                <td>91</td><td>SNL35052</td><td>Quais Distribution</td><td>Réunion</td><td>Improductif</td><td><i class='bx bxs-x-square' title="Pas d'indicateur de charge" style="color:red;"></i></td>
+                            </tr>
+                            <tr>
+                                <td>92</td><td>SNL35010</td><td>Quais Distribution</td><td>Délégation</td><td>Improductif</td><td><i class='bx bxs-x-square' title="Pas d'indicateur de charge" style="color:red;"></i></td>
+                            </tr>
+                            <tr>
+                                <td>93</td><td>SNL35052</td><td>Quais Distribution</td><td>Formation</td><td>Improductif</td><td><i class='bx bxs-x-square' title="Pas d'indicateur de charge" style="color:red;"></i></td>
+                            </tr>
+                            <tr>
+                                <td>94</td><td>é voir avec CE</td><td>Quais Distribution</td><td>Chantiers</td><td>Improductif</td><td><i class='bx bxs-x-square' title="Pas d'indicateur de charge" style="color:red;"></i></td>
+                            </tr>
+                            <tr>
+                                <td>95</td><td>SNL35052</td><td>Quais Distribution</td><td>Autres</td><td>Improductif</td><td><i class='bx bxs-x-square' title="Pas d'indicateur de charge" style="color:red;"></i></td>
+                            </tr>
+                            <tr>
+                                <td>104</td><td>SNL35013</td><td>Gestion ordonnancement</td><td>Délégation</td><td>Improductif</td><td><i class='bx bxs-x-square' title="Pas d'indicateur de charge" style="color:red;"></i></td>
+                            </tr>
+                            <tr>
+                                <td>105</td><td>SNL35037</td><td>Gestion ordonnancement</td><td>Formation</td><td>Improductif</td><td><i class='bx bxs-x-square' title="Pas d'indicateur de charge" style="color:red;"></i></td>
+                            </tr>
+                            <tr>
+                                <td>106</td><td>é voir avec CE</td><td>Gestion ordonnancement</td><td>Chantiers</td><td>Improductif</td><td><i class='bx bxs-x-square' title="Pas d'indicateur de charge" style="color:red;"></i></td>
+                            </tr>
+                            <tr>
+                                <td>107</td><td>é voir avec CE</td><td>Gestion ordonnancement</td><td>Autres</td><td>Improductif</td><td><i class='bx bxs-x-square' title="Pas d'indicateur de charge" style="color:red;"></i></td>
+                            </tr>
+                            <tr>
+                                <td>108</td><td>SPL32009</td><td>Réception / Rangement / Expéditions</td><td>ARP Recep Rgt</td><td>Renfort</td><td><i class='bx bxs-x-square' title="Pas d'indicateur de charge" style="color:red;"></i></td>
+                            </tr>
+                            <tr>
+                                <td>109</td><td>SPL32003</td><td>Picking</td><td>Renfort ARP</td><td>Renfort</td><td><i class='bx bxs-x-square' title="Pas d'indicateur de charge" style="color:red;"></i></td>
+                            </tr>
+                            <tr>
+                                <td>110</td><td>SPL32012</td><td>Gestion ordonnancement</td><td>Renfort ARP</td><td>Renfort</td><td><i class='bx bxs-x-square' title="Pas d'indicateur de charge" style="color:red;"></i></td>
+                            </tr>
+                            <tr>
+                                <td>111</td><td>SPL32006</td><td>Tamaris</td><td>Renfort ARP</td><td>Renfort</td><td><i class='bx bxs-x-square' title="Pas d'indicateur de charge" style="color:red;"></i></td>
+                            </tr>
+                            <tr>
+                                <td>112</td><td>SPL32041</td><td>Réception / Rangement / Expéditions</td><td>EWM Recep Rgt</td><td>Renfort</td><td><i class='bx bxs-x-square' title="Pas d'indicateur de charge" style="color:red;"></i></td>
+                            </tr>
+                            <tr>
+                                <td>113</td><td>SPL32038</td><td>Picking</td><td>Renfort EWM</td><td>Renfort</td><td><i class='bx bxs-x-square' title="Pas d'indicateur de charge" style="color:red;"></i></td>
+                            </tr>
+                            <tr>
+                                <td>114</td><td>SPL32045</td><td>Gestion ordonnancement</td><td>Renfort EWM</td><td>Renfort</td><td><i class='bx bxs-x-square' title="Pas d'indicateur de charge" style="color:red;"></i></td>
+                            </tr>
+                            <tr>
+                                <td>115</td><td>SPL32041</td><td>Tamaris</td><td>Renfort EWM</td><td>Renfort</td><td><i class='bx bxs-x-square' title="Pas d'indicateur de charge" style="color:red;"></i></td>
+                            </tr>
+                            <tr>
+                                <td>116</td><td>SPL33032</td><td>Réception / Rangement / Expéditions</td><td>MagAuto</td><td>Renfort</td><td><i class='bx bxs-x-square' title="Pas d'indicateur de charge" style="color:red;"></i></td>
+                            </tr>
+                            <tr>
+                                <td>117</td><td>SPL33032</td><td>Picking</td><td>Renfort MagAuto</td><td>Renfort</td><td><i class='bx bxs-x-square' title="Pas d'indicateur de charge" style="color:red;"></i></td>
+                            </tr>
+                            <tr>
+                                <td>120</td><td>SPL32009</td><td>Réception / Rangement / Expéditions</td><td>ARP Expe</td><td>Renfort</td><td><i class='bx bxs-x-square' title="Pas d'indicateur de charge" style="color:red;"></i></td>
+                            </tr>
+                            <tr>
+                                <td>121</td><td>Non</td><td>Réception / Rangement / Expéditions</td><td>EWM Expe</td><td>Renfort</td><td><i class='bx bxs-x-square' title="Pas d'indicateur de charge" style="color:red;"></i></td>
+                            </tr>
+                            <tr>
+                                <td>122</td><td>SNL35039</td><td>Réception / Rangement / Expéditions</td><td>Brof</td><td>Productif Non Cadencé</td><td><i class='bx bxs-x-square' title="Pas d'indicateur de charge" style="color:red;"></i></td>
+                            </tr>
+                            <tr>
+                                <td>123</td><td>SNL35039</td><td>Réception / Rangement / Expéditions</td><td>Zone Bloquée</td><td>Productif Non Cadencé</td><td><i class='bx bxs-x-square' title="Pas d'indicateur de charge" style="color:red;"></i></td>
+                            </tr>
+                            <tr>
+                                <td>124</td><td>SNL35038</td><td>Réception / Rangement / Expéditions</td><td>Litiges Expé</td><td>Productif Non Cadencé</td><td><i class='bx bxs-x-square' title="Pas d'indicateur de charge" style="color:red;"></i></td>
+                            </tr>
+                            <tr>
+                                <td>125</td><td>SNL31035</td><td>Tamaris</td><td>Chef d&#39;équipe</td><td>Encadrement</td><td><i class='bx bxs-x-square' title="Pas d'indicateur de charge" style="color:red;"></i></td>
+                            </tr>
+                            <tr>
+                                <td>126</td><td>SNL31035</td><td>Tamaris</td><td>Team Leader</td><td>Support</td><td><i class='bx bxs-x-square' title="Pas d'indicateur de charge" style="color:red;"></i></td>
+                            </tr>
+                            <tr>
+                                <td>127</td><td>SNL35038</td><td>Réception / Rangement / Expéditions</td><td>Nettoyage 5S</td><td>Improductif</td><td><i class='bx bxs-x-square' title="Pas d'indicateur de charge" style="color:red;"></i></td>
+                            </tr>
+                            <tr>
+                                <td>128</td><td>SNL35052</td><td>Consolidation</td><td>Nettoyage 5S</td><td>Improductif</td><td><i class='bx bxs-x-square' title="Pas d'indicateur de charge" style="color:red;"></i></td>
+                            </tr>
+                            <tr>
+                                <td>129</td><td>SNL35037</td><td>Gestion ordonnancement</td><td>Nettoyage 5S</td><td>Improductif</td><td><i class='bx bxs-x-square' title="Pas d'indicateur de charge" style="color:red;"></i></td>
+                            </tr>
+                            <tr>
+                                <td>130</td><td>SNL35124</td><td>Kardex</td><td>Nettoyage 5S</td><td>Improductif</td><td><i class='bx bxs-x-square' title="Pas d'indicateur de charge" style="color:red;"></i></td>
+                            </tr>
+                            <tr>
+                                <td>131</td><td>SNL35052</td><td>Picking</td><td>Nettoyage 5S</td><td>Improductif</td><td><i class='bx bxs-x-square' title="Pas d'indicateur de charge" style="color:red;"></i></td>
+                            </tr>
+                            <tr>
+                                <td>132</td><td>SNL35052</td><td>Quais Distribution</td><td>Nettoyage 5S</td><td>Improductif</td><td><i class='bx bxs-x-square' title="Pas d'indicateur de charge" style="color:red;"></i></td>
+                            </tr>
+                            <tr>
+                                <td>133</td><td>SNL35053</td><td>Tamaris</td><td>Nettoyage 5S</td><td>Improductif</td><td><i class='bx bxs-x-square' title="Pas d'indicateur de charge" style="color:red;"></i></td>
+                            </tr>
+                            <tr>
+                                <td>134</td><td>SPL33030</td><td>Consolidation</td><td>Layout</td><td>Renfort</td><td><i class='bx bxs-x-square' title="Pas d'indicateur de charge" style="color:red;"></i></td>
+                            </tr>
+                            <tr>
+                                <td>135</td><td>SPL33030</td><td>Gestion ordonnancement</td><td>Layout</td><td>Renfort</td><td><i class='bx bxs-x-square' title="Pas d'indicateur de charge" style="color:red;"></i></td>
+                            </tr>
+                            <tr>
+                                <td>136</td><td>SPL33030</td><td>Kardex</td><td>Layout</td><td>Renfort</td><td><i class='bx bxs-x-square' title="Pas d'indicateur de charge" style="color:red;"></i></td>
+                            </tr>
+                            <tr>
+                                <td>137</td><td>SPL33030</td><td>Picking</td><td>Layout</td><td>Renfort</td><td><i class='bx bxs-x-square' title="Pas d'indicateur de charge" style="color:red;"></i></td>
+                            </tr>
+                            <tr>
+                                <td>138</td><td>SPL33030</td><td>Quais Distribution</td><td>Layout</td><td>Renfort</td><td><i class='bx bxs-x-square' title="Pas d'indicateur de charge" style="color:red;"></i></td>
+                            </tr>
+                            <tr>
+                                <td>139</td><td>SPL33030</td><td>Réception / Rangement / Expéditions</td><td>Layout</td><td>Renfort</td><td><i class='bx bxs-x-square' title="Pas d'indicateur de charge" style="color:red;"></i></td>
+                            </tr>
+                            <tr>
+                                <td>140</td><td>SPL33030</td><td>Tamaris</td><td>Layout</td><td>Renfort</td><td><i class='bx bxs-x-square' title="Pas d'indicateur de charge" style="color:red;"></i></td>
+                            </tr>
+                            <tr>
+                                <td>141</td><td>SPL32052</td><td>Picking</td><td>Monitoring</td><td>Productif Non Cadencé</td><td><i class='bx bxs-x-square' title="Pas d'indicateur de charge" style="color:red;"></i></td>
+                            </tr>
+                            <tr>
+                                <td>142</td><td>SNL35037</td><td>Gestion ordonnancement</td><td>Monitoring</td><td>Productif Non Cadencé</td><td><i class='bx bxs-x-square' title="Pas d'indicateur de charge" style="color:red;"></i></td>
+                            </tr>
+                            <tr>
+                                <td>143</td><td>SPL32009</td><td>Quais Distribution</td><td>Chef d&#39;équipe</td><td>Encadrement</td><td><i class='bx bxs-x-square' title="Pas d'indicateur de charge" style="color:red;"></i></td>
+                            </tr>
+                            <tr>
+                                <td>144</td><td>SPL32009</td><td>Quais Distribution</td><td>Team Leader</td><td>Support</td><td><i class='bx bxs-x-square' title="Pas d'indicateur de charge" style="color:red;"></i></td>
+                            </tr>
+                            <tr>
+                                <td>145</td><td>SNL35009</td><td>Consolidation</td><td>Chef d&#39;équipe</td><td>Encadrement</td><td><i class='bx bxs-x-square' title="Pas d'indicateur de charge" style="color:red;"></i></td>
+                            </tr>
+                            <tr>
+                                <td>146</td><td>SNL35008</td><td>Consolidation</td><td>Team Leader</td><td>Support</td><td><i class='bx bxs-x-square' title="Pas d'indicateur de charge" style="color:red;"></i></td>
+                            </tr>
+                            <tr>
+                                <td>147</td><td>SPL32032</td><td>Gestion ordonnancement</td><td>Renfort MagAuto</td><td>Renfort</td><td><i class='bx bxs-x-square' title="Pas d'indicateur de charge" style="color:red;"></i></td>
+                            </tr>
+                            <tr>
+                                <td>148</td><td>SPL32035</td><td>Picking</td><td>Projet MagAuto</td><td>Renfort</td><td><i class='bx bxs-x-square' title="Pas d'indicateur de charge" style="color:red;"></i></td>
+                            </tr>
+                            <tr>
+                                <td>149</td><td>SPL32035</td><td>Gestion ordonnancement</td><td>Projet MagAuto</td><td>Renfort</td><td><i class='bx bxs-x-square' title="Pas d'indicateur de charge" style="color:red;"></i></td>
+                            </tr>
+                            <tr>
+                                <td>150</td><td>SPL32035</td><td>Consolidation</td><td>Projet MagAuto</td><td>Renfort</td><td><i class='bx bxs-x-square' title="Pas d'indicateur de charge" style="color:red;"></i></td>
+                            </tr>
+                            <tr>
+                                <td>151</td><td>SPL32035</td><td>Quais Distribution</td><td>Projet MagAuto</td><td>Renfort</td><td><i class='bx bxs-x-square' title="Pas d'indicateur de charge" style="color:red;"></i></td>
+                            </tr>
+                            <tr>
+                                <td>152</td><td>SPL32035</td><td>Réception / Rangement / Expéditions</td><td>Projet MagAuto</td><td>Renfort</td><td><i class='bx bxs-x-square' title="Pas d'indicateur de charge" style="color:red;"></i></td>
+                            </tr>
+                            <tr>
+                                <td>159</td><td>SPL32033</td><td>Picking</td><td>MagAuto Nuit Transfert</td><td>Renfort</td><td><i class='bx bxs-x-square' title="Pas d'indicateur de charge" style="color:red;"></i></td>
+                            </tr>
+                            <tr>
+                                <td>160</td><td>???</td><td>Picking</td><td>Exit Antenna</td><td>Productif Non Cadencé</td><td><i class='bx bxs-x-square' title="Pas d'indicateur de charge" style="color:red;"></i></td>
+                            </tr>
+                            <tr>
+                                <td>161</td><td>???</td><td>Réception / Rangement / Expéditions</td><td>Chine</td><td>Productif Non Cadencé</td><td><i class='bx bxs-x-square' title="Pas d'indicateur de charge" style="color:red;"></i></td>
+                            </tr>
+                            <tr>
+                                <td>162</td><td>???</td><td>Kardex</td><td>Milk-Run Kardex</td><td>Productif Non Cadencé</td><td><i class='bx bxs-x-square' title="Pas d'indicateur de charge" style="color:red;"></i></td>
+                            </tr>
+                            <tr>
+                                <td>163</td><td>SNL35037</td><td>Gestion ordonnancement</td><td>Mag auto</td><td>Productif Cadencé</td><td>Nb emplacements Inventaire Mag auto</td>
+                            </tr>
+                            <tr>
+                                <td>164</td><td>SNL35037</td><td>Gestion ordonnancement</td><td>Inventaire Pédestres</td><td>Productif Cadencé</td><td>Nb emplacements Pédestres</td>
+                            </tr>
+                            <tr>
+                                <td>165</td><td>SNL35037</td><td>Gestion ordonnancement</td><td>Service Client</td><td>Productif Cadencé</td><td>Rob on</td>
+                            </tr>
+                            <tr>
+                                <td>166</td><td>SNL35037</td><td>Gestion ordonnancement</td><td>Mag auto</td><td>Productif Cadencé</td><td>Grouping Fiori</td>
+                            </tr>
+                            <tr>
+                                <td>167</td><td>SNL35037</td><td>Gestion ordonnancement</td><td>Mag auto</td><td>Productif Cadencé</td><td>Grouping Pack</td>
+                            </tr>
+                            <tr>
+                                <td>168</td><td>SNL35037</td><td>Gestion ordonnancement</td><td>Mag auto</td><td>Productif Cadencé</td><td>Clarification</td>
+                            </tr>
+                            <tr>
+                                <td>169</td><td>SNL35052</td><td>Picking</td><td>Packing</td><td>Productif Non Cadencé</td><td><i class='bx bxs-x-square' title="Pas d'indicateur de charge" style="color:red;"></i></td>
+                            </tr>
+                            <tr>
+                                <td>170</td><td>SNL35052</td><td>Picking</td><td>Picking Saprena</td><td>Productif Cadencé</td><td>Nb lignes servies</td>
+                            </tr>
+                            <tr>
+                                <td>171</td><td>SNL35037</td><td>Gestion ordonnancement</td><td>Mag auto</td><td>Productif Cadencé</td><td>PTRM</td>
+                            </tr>
+                            <tr>
+                                <td>172</td><td>SNL35052</td><td>Picking</td><td>Flux Picking Pédestre</td><td>Productif Cadencé</td><td>Nb lignes servies</td>
+                            </tr>
+                            <tr>
+                                <td>173</td><td>SNL35052</td><td>Picking</td><td>Kanban Picking Pédestre</td><td>Productif Cadencé</td><td>Nb lignes servies</td>
+                            </tr>
+                            <tr>
+                                <td>174</td><td>SNL35052</td><td>Picking</td><td>HDO Picking Pédestre</td><td>Productif Cadencé</td><td>Nb lignes servies</td>
+                            </tr>
+                            <tr>
+                                <td>175</td><td>SNL35052</td><td>Picking</td><td>A320 AM Picking Pédestre</td><td>Productif Cadencé</td><td>Nb lignes servies</td>
+                            </tr>
+                            <tr>
+                                <td>176</td><td>SNL35052</td><td>Picking</td><td>Picking Pédestre OF A330</td><td>Productif Non Cadencé</td><td>Nb lignes servies</td>
+                            </tr>
+                            <tr>
+                                <td>177</td><td>SNL35052</td><td>Picking</td><td>Picking Pédestre OF A350</td><td>Productif Non Cadencé</td><td>Nb lignes servies</td>
+                            </tr>
+                            <tr>
+                                <td>178</td><td>SNL35052</td><td>Picking</td><td>Picking Pédestre OF A400M</td><td>Productif Non Cadencé</td><td>Nb lignes servies</td>
+                            </tr>
+                            <tr>
+                                <td>179</td><td>SNL35053</td><td>Picking</td><td>Picking Pédestre A330 + A350 + A400M</td><td>Productif Cadencé</td><td>Nb lignes servies</td>
+                            </tr>
+                            <tr>
+                                <td>180</td><td>SNL35052</td><td>Picking</td><td>A320 ST Picking Pédestre</td><td>Productif Cadencé</td><td>Nb lignes servies</td>
+                            </tr>
+                            <tr>
+                                <td>181</td><td>SNL35052</td><td>Picking</td><td>Chine Picking Pédestre</td><td>Productif Non Cadencé</td><td>Nb lignes servies</td>
+                            </tr>
+                            <tr>
+                                <td>182</td><td>SNL35052</td><td>Picking</td><td>5e Ligne Picking Pédestre</td><td>Productif Non Cadencé</td><td>Nb lignes servies</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+			<br>
+			<!-- pied de page -->
+			<div class="box">
+				<div class="cardText" style="text-align: center;">
+					<p><b><a href="index.html" class="txtLink"><i class='bx bxs-bar-chart-square' title="TRACKING &bull; DAHER Hub Ouest"></i> TRACKING</b></a> &bull; 2023 - 2024, Tous droits réservés. Ce site est affilié à <a href="https://www.daher.com/" class="txtLink">DAHER hub Ouest <b>&copy;</b></a></p>
+					<p><b><a href="support.html" class="txtLink">Support</a> &bull; <a href="https://bit.ly/3f9Zk8d" class="txtLink">Politique de confidentialité</a></b></p>
+					<a href="https://www.daher.com/"><img src="../img/logotypes/daher.png" alt="Logo DAHER SA" class="daher"></a>
+				</div>
+			</div>
+		</section>
+		
+		<!-- lien vers le javascript -->
+		<script src="../app.js"></script>
+	</body>
+</html>
