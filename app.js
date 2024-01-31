@@ -118,6 +118,6 @@ function trierTableau() {
 
 function redirectToAjoutOpe() {
   // Redirige vers une autre page HTML
-  window.location.href = "ajoutOpe.html";
+  window.location.href = "ajout/ajoutOpe.html";
 }
 
