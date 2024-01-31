@@ -35,3 +35,89 @@ document.addEventListener("DOMContentLoaded", function () {
       });
     });
   });
+
+const searchInput = document.getElementById('recherche-effectif');
+const table = document.getElementById('table-resp');
+const tbody = table.getElementsByTagName('tbody')[0];
+const rows = tbody.getElementsByTagName('tr');
+
+searchInput.addEventListener('input', function () {
+  const searchValue = searchInput.value.toLowerCase();
+
+  for (let i = 0; i < rows.length; i++) {
+    const row = rows[i];
+    const cells = row.getElementsByTagName('td');
+    let rowContainsSearch = false;
+
+    for (let j = 0; j < cells.length; j++) {
+      const cellContent = cells[j].textContent.toLowerCase();
+
+      if (cellContent.includes(searchValue)) {
+        rowContainsSearch = true;
+        break;
+      }
+    }
+
+    if (rowContainsSearch) {
+      row.style.display = 'table-row';
+    } else {
+      row.style.display = 'none';
+    }
+  }
+});
+
+
+function trierTableau() {
+  var selectElement = document.getElementById('triListeOpe');
+  var selectedOption = selectElement.options[selectElement.selectedIndex].value;
+
+  var tableau = document.getElementById('table-resp');
+  var tbody = tableau.querySelector('tbody');
+  var lignes = [].slice.call(tbody.querySelectorAll('tr'));
+
+  lignes.sort(function (a, b) {
+      var aValue, bValue;
+
+      switch (selectedOption) {
+          case '1':
+              aValue = a.cells[1].textContent;
+              bValue = b.cells[1].textContent;
+              break;
+          case '2':
+          case '3':
+              aValue = parseInt(a.cells[0].textContent, 10);
+              bValue = parseInt(b.cells[0].textContent, 10);
+              break;
+          case '4':
+          case '5':
+              aValue = parseInt(a.cells[2].textContent, 10);
+              bValue = parseInt(b.cells[2].textContent, 10);
+              break;
+          case '6':
+          case '7':
+              aValue = parseFloat(a.cells[3].textContent);
+              bValue = parseFloat(b.cells[3].textContent);
+              break;
+          default:
+              break;
+      }
+
+      if (selectedOption === '2' || selectedOption === '4' || selectedOption === '6') {
+          return aValue - bValue;
+      } else {
+          return bValue - aValue;
+      }
+  });
+
+  tbody.innerHTML = '';
+  lignes.forEach(function (ligne) {
+      tbody.appendChild(ligne);
+  });
+}
+
+
+function redirectToAjoutOpe() {
+  // Redirige vers une autre page HTML
+  window.location.href = "ajoutOpe.html";
+}
+
