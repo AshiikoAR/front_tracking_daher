@@ -1,1 +1,181 @@
-Hello world :)
+<!DOCTYPE html>
+<html lang="fr">
+
+	<!-- en-tête -->
+	<head>
+		<title>Recherche &bull; TRACKING</title>
+		<meta charset="UTF-8"/>
+		<link href="https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css" rel='stylesheet'>
+		<link rel="stylesheet" href="../../style.css">
+		<link type="images/png" rel="shortcut icon" href="../../img/logotypes/white-logo.png">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	</head>
+	
+	<!-- page -->
+	<body>
+		<!-- menu sur le côté -->
+		<div class="sidebar close">
+			<div class="logo-details">
+				<a href="../../index.html">
+					<i class='bx bx-bar-chart-square' title="TRACKING &bull; DAHER Hub Ouest"></i>
+					<span class="logo_name">TRACKING</span>
+				</a>
+			</div>
+			<ul class="nav-links">
+				<li>
+					<a href="../../index.html">
+						<i class='bx bxs-dashboard'></i>
+						<span class="link_name">Dashboard</span>
+					</a>
+					<ul class="sub-menu blank">
+						<li><a class="link_name" href="../../index.html">Dashboard</a></li>
+					</ul>
+				</li>
+                <li>
+					<div class="iocn-link">
+						<a href="../../recherche.html">
+							<i class='bx bx-search-alt'></i>
+							<span class="link_name">Recherche</span>
+						</a>
+						<i class='bx bxs-chevron-down arrow' ></i>
+					</div>
+					<ul class="sub-menu">
+						<li><a class="link_name" href="../../recherche.html">Recherche</a></li>
+						<li><a href="../rech_ope.html">Liste des opérateurs</a></li>
+						<li><a href="../rech_act.html">Liste des activités</a></li>
+					</ul>
+				</li>
+				<li>
+					<div class="iocn-link">
+						<a href="">
+							<i class='bx bx-target-lock'></i>
+							<span class="link_name">Suivi</span>
+						</a>
+						<i class='bx bxs-chevron-down arrow' ></i>
+					</div>
+					<ul class="sub-menu">
+						<li><a class="link_name" href="">Suivi</a></li>
+						<li><a href="">Récep. / Rang. / Expé.</a></li>
+						<li><a href="">Picking</a></li>
+						<li><a href="">Consolidation</a></li>
+						<li><a href="">Kardex</a></li>
+						<li><a href="">Gestion ord.</a></li>
+						<li><a href="">Tamaris</a></li>
+						<li><a href="">Quais distribution</a></li>
+					</ul>
+				</li>
+				<li>
+					<a href="">
+						<i class='bx bx-error'></i>
+						<span class="link_name">Anomalies</span>
+					</a>
+					<ul class="sub-menu blank">
+						<li><a class="link_name" href="">Anomalies</a></li>
+					</ul>
+				</li>
+				<li>
+					<a href="">
+						<i class='bx bx-ghost' ></i>
+						<span class="link_name">Absences</span>
+					</a>
+					<ul class="sub-menu blank">
+						<li><a class="link_name" href="">Absences</a></li>
+					</ul>
+				</li>
+				<li>
+					<a href="../../support.html">
+						<i class='bx bxs-buoy'></i>
+						<span class="link_name">Support</span>
+					</a>
+					<ul class="sub-menu blank">
+						<li><a class="link_name" href="../../support.html">Support</a></li>
+					</ul>
+				</li>
+			</ul>
+		</div>
+		
+		<!-- contenu de la page -->
+		<section class="home-section">
+			<!-- Nom de page -->
+			<div class="home-content">
+				<i class='bx bx-menu' ></i>
+				<span class="text"><i class='bx bxs-search' title="Recherche"></i> &bull; <a href="../recherche.html" class="search-hover">Recherche</a> > <a href="../rech_ope.html" class="search-hover">Liste des opérateurs</a> > Ajouter un opérateur</span>
+			</div>
+			<!-- Bloc contenant le pop-up d'aide d'ajout d'effectif -->
+			<div class="box" id="accueil-popup">
+				<div class="cardText">
+					<div class="cardHeader">
+						<h2><span style="color:red; font-weight: bolder;">[INFO]</span> &bull; Aide "Manipulation effectif"</h2>
+					</div>
+					<p>
+                        <a href="" class="txtLink" title="add_ope.pdf"><b><u>Cliquez-ici</u></b></a> pour obtenir la documentation liée à l'ajout/modification/suppression d'un opérateur dans la base de données.
+					</p>
+					<div class="close-button">
+						<span class="close" onclick="closePopup()"><i class='bx bx-x-circle' title="Fermer le pop-up"></i></span>
+					</div>
+				</div>
+				<br>
+			</div>
+            <div class="box">
+                <div class="cardText">
+					<table>
+						<thead>
+							<tr>
+								<th title="Filtrer par responsable">
+									<label for="responsable"><b><i class='bx bx-filter' ></i>&ensp;</b>
+										<select id="responsable" name="responsable">
+											<option value="none">--</option>
+											<option value="AUFFRAIS">AUFFRAIS F.</option>
+											<option value="BARBET">BARBET R.</option>
+											<option value="BONZANS">BONZANS C.</option>
+											<option value="CRIADO">CRIADO J.</option>
+											<option value="DA_COSTA">DA COSTA E.</option>
+											<option value="DOUMAYRENC">DOUMAYRENC E.</option>
+											<option value="FRANCAVILLA">FRANCAVILLA A.</option>
+											<option value="GASCOIN">GASCOIN L.</option>
+											<option value="HUCHET">HUCHET N.</option>
+											<option value="JAUNAIS">JAUNAIS F.</option>
+											<option value="PELE">PELE F.</option>
+											<option value="PHILIPPE">PHILIPPE H.</option>
+											<option value="RIOUS">RIOUS S.</option>
+										</select>
+									</label>
+								</th>
+								<th>
+									<input type="button" value="Ajouter un opérateur" onclick="redirectToAjoutOpe()" />
+								</th>
+								<th>
+									<input type="text" placeholder="Rechercher un effectif" size="22" id="recherche-effectif">
+								</th>
+								<th title="Trier par">
+									<label for="Trier par"><b><i class='bx bx-sort-alt-2'></i>&ensp;</b></label>
+									<select id="triListeOpe" onchange="trierTableau()">
+										<option value="1">Ordre alphabétique NOM (A-Z)</option>
+										<option value="2">Matricule croissant</option>
+										<option value="3">Matricule décroissant</option>
+										<option value="4">NG croissant</option>
+										<option value="5">NG décroissant</option>
+										<option value="6">Avancement croissant</option>
+										<option value="7">Avancement décroissant</option>
+									</select>  
+								</th>
+							</tr>
+						</thead>
+					</table>
+                </div>
+            </div>
+			<br>
+			<!-- pied de page -->
+			<div class="box">
+				<div class="cardText" style="text-align: center;">
+					<p><b><a href="../../index.html" class="txtLink"><i class='bx bxs-bar-chart-square' title="TRACKING &bull; DAHER Hub Ouest"></i> TRACKING</b></a> &bull; 2023 - 2024, Tous droits réservés. Ce site est affilié à <a href="https://www.daher.com/" class="txtLink">DAHER hub Ouest <b>&copy;</b></a></p>
+					<p><b><a href="../../support.html" class="txtLink">Support</a> &bull; <a href="https://bit.ly/3f9Zk8d" class="txtLink">Politique de confidentialité</a></b></p>
+					<a href="https://www.daher.com/"><img src="../../img/logotypes/daher.png" alt="Logo DAHER SA" class="daher"></a>
+				</div>
+			</div>
+		</section>
+		
+		<!-- lien vers le javascript -->
+		<script src="../../app.js"></script>
+	</body>
+</html>
