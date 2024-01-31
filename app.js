@@ -43,7 +43,7 @@ document.addEventListener("DOMContentLoaded", function () {
   
   searchInput.addEventListener('input', function () {
     const searchValue = searchInput.value.toLowerCase();
-    let resultFound = false;
+    let anyRowContainsSearch = false;
   
     for (let i = 0; i < rows.length; i++) {
       const row = rows[i];
@@ -55,7 +55,7 @@ document.addEventListener("DOMContentLoaded", function () {
   
         if (cellContent.includes(searchValue)) {
           rowContainsSearch = true;
-          resultFound = true;
+          anyRowContainsSearch = true;
           break;
         }
       }
@@ -67,18 +67,22 @@ document.addEventListener("DOMContentLoaded", function () {
       }
     }
   
-    // Afficher "Recherche KO" si aucun résultat n'est trouvé
-    if (!resultFound) {
-      // Créer une nouvelle ligne
-      const newRow = tbody.insertRow();
-      const newCell = newRow.insertCell();
-      newCell.colSpan = rows[0].cells.length; // Définir la largeur de la cellule comme la largeur de la ligne
-  
-      // Ajouter le texte "Recherche KO" à la cellule
-      const newText = document.createTextNode('Élément introuvable ');
-      newCell.appendChild(newText);
+    // Ajouter une ligne spéciale si aucune ligne ne correspond à la recherche
+    if (!anyRowContainsSearch) {
+      const noResultsRow = tbody.insertRow();
+      const cell = noResultsRow.insertCell();
+      cell.textContent = 'Élément introuvable';
+      cell.colSpan = rows[0].cells.length; // Définir la largeur de la cellule à la largeur du tableau
+    }
+    // Supprimer la ligne spéciale si des résultats sont trouvés
+    else {
+      const noResultsRow = tbody.querySelector('.no-results-row');
+      if (noResultsRow) {
+        tbody.removeChild(noResultsRow);
+      }
     }
   });
+  
   
 
 function redirectToAjoutOpe() {
