@@ -124,12 +124,12 @@ function filterTableActivite() {
 // ================================================================================================ //
 // Code permettant de filtrer les résultat de recherche d'opérateurs en fonction du type d'activité //
 // ================================================================================================ //
-document.getElementById('responsable').addEventListener('change', function () {
+document.getElementById('nomresp').addEventListener('change', function () {
   filterTableResp();
 });
 
 function filterTableResp() {
-  const selectedActivity = document.getElementById('responsable').value.toLowerCase();
+  const selectedResp = document.getElementById('nomresp').value.toLowerCase();
   const table = document.getElementById('table-aff');
   const tbody = table.getElementsByTagName('tbody')[0];
   const rows = tbody.getElementsByTagName('tr');
@@ -137,12 +137,13 @@ function filterTableResp() {
   for (let i = 0; i < rows.length; i++) {
     const row = rows[i];
     const cells = row.getElementsByTagName('td');
-    const activityCell = cells[7]; // L'indice 7 représente la colonne 8 (JavaScript est 0-indexé)
+    const respCell = cells[7]; // L'indice 2 représente la colonne 3 (JavaScript est 0-indexé)
 
-    if (selectedActivity === 'none' || activityCell.textContent.toLowerCase() === selectedActivity) {
+    if (selectedResp === 'none' || respCell.textContent.toLowerCase() === selectedResp) {
       row.style.display = 'table-row';
     } else {
       row.style.display = 'none';
     }
   }
 }
+
