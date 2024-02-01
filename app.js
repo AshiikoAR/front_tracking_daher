@@ -102,11 +102,10 @@ function handleFilterChange() {
   filterTableResp();
 }
 
-document.getElementById('activites').addEventListener('change', handleFilterChange);
-document.getElementById('nomresp').addEventListener('change', handleFilterChange);
+document.getElementById('filtre').addEventListener('change', handleFilterChange);
 
 function filterTableActivite() {
-  const selectedActivity = document.getElementById('activites').value.toLowerCase();
+  const selectedActivity = document.getElementById('filtre').value.toLowerCase();
   const table = document.getElementById('table-aff');
   const tbody = table.getElementsByTagName('tbody')[0];
   const rows = tbody.getElementsByTagName('tr');
@@ -125,7 +124,7 @@ function filterTableActivite() {
 }
 
 function filterTableResp() {
-  const selectedResp = document.getElementById('nomresp').value.toLowerCase();
+  const selectedResp = document.getElementById('filtre').value.toLowerCase();
   const table = document.getElementById('table-aff');
   const tbody = table.getElementsByTagName('tbody')[0];
   const rows = tbody.getElementsByTagName('tr');
