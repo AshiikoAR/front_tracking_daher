@@ -94,9 +94,9 @@ searchInput.addEventListener('input', function () {
 });
 
 
-// ======================================================================================================================================== //
-// Code permettant de filtrer la recherche de sous-activité en fonction de l'activité / la recherche d'opérateur en fonction du responsable //
-// ======================================================================================================================================== //
+// ====================================================================================================================================== //
+// Code permettant de filtrer la recherche de sous-activité en fonction de l'activité/la recherche d'opérateur en fonction du responsable //
+// ====================================================================================================================================== //
 function handleFilterChange() {
   filterTableActivite();
   filterTableResp();
@@ -142,3 +142,7 @@ function filterTableResp() {
   }
 }
 
+
+// ======================================================================================================================
+// Code permettant de trier les listes d'activités/d'opérateurs dans des ordres différents (croissant, alphabétique, etc)
+// ======================================================================================================================
