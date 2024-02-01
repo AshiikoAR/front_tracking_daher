@@ -111,7 +111,7 @@
 								<th title="Filtrer par activités">
 									<label for="activites"><b><i class='bx bx-filter' ></i>&ensp;</b>
 										<select id="activites" name="activites">
-											<option value="none">Trier par activité</option>
+											<option value="none">Filtrer par activité</option>
 											<option value="Réception / Rangement / Expéditions">Récep. / Rang. / Expé.</option>
 											<option value="picking">Picking</option>
 											<option value="consolidation">Consolidation</option>
@@ -122,13 +122,13 @@
 										</select>
 									</label>
 								</th>
-								<th>
-									<input type="text" placeholder="Rechercher une sous-activité" size="30" id="recherche-double">
+								<th title="Rechercher une sous-activité">
+									<i class='bx bx-search-alt'></i>&ensp;<input type="text" placeholder="Rechercher une sous-activité" size="30" id="recherche-double">
 								</th>
 								<th title="Trier par">
 									<label for="Trier par"><b><i class='bx bx-sort-alt-2'></i>&ensp;</b></label>
 									<select id="triListeOpe" onchange="trierTableau()">
-										<option value="1">ID croissant</option>
+										<option value="1">Trier par : ID croissant</option>
 										<option value="2">ID décroissant</option>
                                         <option value="3">Ordre alphabétique NOM (A-Z)</option>
 										<option value="4">Ordre alphabétique Activité (A-Z)</option>

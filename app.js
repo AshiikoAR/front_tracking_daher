@@ -94,12 +94,16 @@ searchInput.addEventListener('input', function () {
 });
 
 
-// ==================================================================================================== //
-// Code permettant de filtrer les résultat de recherche de sous-activité en fonction du type d'activité //
-// ==================================================================================================== //
-document.getElementById('activites').addEventListener('change', function () {
+// ======================================================================================================================================== //
+// Code permettant de filtrer la recherche de sous-activité en fonction de l'activité / la recherche d'opérateur en fonction du responsable //
+// ======================================================================================================================================== //
+function handleFilterChange() {
   filterTableActivite();
-});
+  filterTableResp();
+}
+
+document.getElementById('activites').addEventListener('change', handleFilterChange);
+document.getElementById('nomresp').addEventListener('change', handleFilterChange);
 
 function filterTableActivite() {
   const selectedActivity = document.getElementById('activites').value.toLowerCase();
@@ -119,14 +123,6 @@ function filterTableActivite() {
     }
   }
 }
-
-
-// ================================================================================================ //
-// Code permettant de filtrer les résultat de recherche d'opérateurs en fonction du type d'activité //
-// ================================================================================================ //
-document.getElementById('nomresp').addEventListener('change', function () {
-  filterTableResp();
-});
 
 function filterTableResp() {
   const selectedResp = document.getElementById('nomresp').value.toLowerCase();
