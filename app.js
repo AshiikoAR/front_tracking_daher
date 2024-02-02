@@ -25,11 +25,19 @@ function closePopup() {
 }
 
 
-// ==================================================================================================================== //
-// Fonction peremettant de rediriger vers la page d'ajout d'opérateur lors que celui-ci clique sur Ajouter un opérateur // 
-// ==================================================================================================================== //
+// =============================================================================================================== //
+// Fonction permettant de rediriger vers la page d'ajout d'opérateur lors que l'on clique sur Ajouter un opérateur // 
+// =============================================================================================================== //
 function redirectToAjoutOpe() { // Lorsque l'utilisateur clique sur le bouton possédant l'attribut 'onclick="redirectToAjoutOpe()"'
   window.location.href = "ajout/ajoutOpe.html"; // On redirige l'utilisateur vers une autre page
+}
+
+
+// ============================================================================================== //
+// Fonction permettant de rediriger vers la liste des opérateurs lors que l'on clique sur Annuler // 
+// ============================================================================================== //
+function redirectToListOpe() { // Lorsque l'utilisateur clique sur le bouton possédant l'attribut 'onclick="redirectToListOpe()"'
+  window.location.href = "../rech_ope.html"; // On redirige l'utilisateur vers une autre page
 }
 
 
@@ -163,14 +171,18 @@ function updateColor() {
   rangeInputs.forEach(function (input) {
       const value = parseInt(input.value);
       const span = input.nextElementSibling; // On séléctionne l'élément voisin : le <span> qui suit l'input
-      if (value <= 50) { // On applique la couleur en fonction de la valeur initiale
+      if (value <= 0) { // On applique la couleur en fonction de la valeur initiale
+        span.classList.add('black');
+      } else if (value <= 25) { // On applique la couleur en fonction de la valeur initiale
         span.classList.add('red');
-      } else if (value <= 75) { // On applique la couleur en fonction de la valeur initiale
+      } else if (value <= 50) { // On applique la couleur en fonction de la valeur initiale
         span.classList.add('chocolate');
+      } else if (value <= 75) { // On applique la couleur en fonction de la valeur initiale
+        span.classList.add('orange');
       } else if(value <= 85) { // On applique la couleur en fonction de la valeur initiale
-          span.classList.add('orange');
-      } else if (value <= 99) {
           span.classList.add('yellow');
+      } else if (value <= 99) {
+          span.classList.add('light-green');
       } else {
           span.classList.add('green');
       }

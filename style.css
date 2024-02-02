@@ -527,8 +527,10 @@ input::placeholder{
   width: calc(100% - 5px);
 }
 
+.black { color: black; }
 .red { color: red; }
 .chocolate { color: chocolate; }
 .orange { color: orange; }
-.yellow { color: yellowgreen; }
+.yellow { color: gold;}
+.light-green { color: yellowgreen; }
 .green { color: green; }
