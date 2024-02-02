@@ -54,7 +54,6 @@ document.addEventListener("DOMContentLoaded", function () {
       }
     });
   });
-  updateColor();
 });
 
 
@@ -158,13 +157,13 @@ function filterTableResp() {
 // ???
 
 
-// ================================================================================================
-// Code permettant de changer la couleur de l'avancement de la journée (critique, quasi-fini, fini)
-// ================================================================================================
-/*document.addEventListener('DOMContentLoaded', function () {
+// ================================================================================================ //
+// Code permettant de changer la couleur de l'avancement de la journée (critique, quasi-fini, fini) //
+// ================================================================================================ //
+document.addEventListener('DOMContentLoaded', function () {
   // Appelle la fonction pour mettre à jour la couleur initiale
   updateColor();
-});*/
+});
 
 function updateColor() {
   const rangeInputs = document.querySelectorAll('.rangeInput');
