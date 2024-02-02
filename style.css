@@ -514,3 +514,21 @@ tr:hover{
 input::placeholder{
   text-align: center;
 }
+
+.rangeContainer {
+  display: flex;
+  align-items: center;
+  width:100%;
+  font-weight: bold;
+}
+
+.rangeInput {
+  margin-right: 5px;
+  width: calc(100% - 5px);
+}
+
+.red { color: red; }
+.chocolate { color: chocolate; }
+.orange { color: orange; }
+.yellow { color: yellowgreen; }
+.green { color: green; }

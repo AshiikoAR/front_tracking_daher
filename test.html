@@ -23,6 +23,19 @@
             input::placeholder {
                 text-align: center;
             }
+
+            /* Ajout de styles pour aligner verticalement l'input avec le texte du span */
+            .rangeContainer {
+                display: flex;
+                align-items: center;
+            }
+
+            .rangeInput {
+            width: 60px; /* Ajuste la largeur selon tes besoins */
+            }
+            .orange { color: orange; }
+            .yellow { color: rgb(243, 243, 0); }
+            .green { color: green; }
         </style>
     </head>
     <body>
@@ -240,7 +253,45 @@
             <div style="text-align: center;">
                 <input type="button" value="Ajouter l'opérateur" onclick="" />
             </div>
-        </fieldset>  
+        </fieldset>
+        <br>
+
+        <!-- Test du range en % -->
+        <label for="rangeInput">Valeurs :</label>
+        <br>
+        <table>
+            <td class="rangeContainer" title="70%"><input type="range" class="rangeInput" min="0" max="100" value="70" disabled><span class="rangeValue">70%</span></td>
+            <td class="rangeContainer" title="71%"><input type="range" class="rangeInput" min="0" max="100" value="71" disabled><span class="rangeValue">71%</span></td>
+            <td class="rangeContainer" title="72%"><input type="range" class="rangeInput" min="0" max="100" value="72" disabled><span class="rangeValue">72%</span></td>
+            <td class="rangeContainer" title="73%"><input type="range" class="rangeInput" min="0" max="100" value="73" disabled><span class="rangeValue">73%</span></td>
+            <td class="rangeContainer" title="74%"><input type="range" class="rangeInput" min="0" max="100" value="74" disabled><span class="rangeValue">74%</span></td>
+            <td class="rangeContainer" title="75%"><input type="range" class="rangeInput" min="0" max="100" value="75" disabled><span class="rangeValue">75%</span></td>
+            <td class="rangeContainer" title="76%"><input type="range" class="rangeInput" min="0" max="100" value="76" disabled><span class="rangeValue">76%</span></td>
+            <td class="rangeContainer" title="77%"><input type="range" class="rangeInput" min="0" max="100" value="77" disabled><span class="rangeValue">77%</span></td>
+            <td class="rangeContainer" title="78%"><input type="range" class="rangeInput" min="0" max="100" value="78" disabled><span class="rangeValue">78%</span></td>
+            <td class="rangeContainer" title="79%"><input type="range" class="rangeInput" min="0" max="100" value="79" disabled><span class="rangeValue">79%</span></td>
+            <td class="rangeContainer" title="80%"><input type="range" class="rangeInput" min="0" max="100" value="80" disabled><span class="rangeValue">80%</span></td>
+            <td class="rangeContainer" title="81%"><input type="range" class="rangeInput" min="0" max="100" value="81" disabled><span class="rangeValue">81%</span></td>
+            <td class="rangeContainer" title="82%"><input type="range" class="rangeInput" min="0" max="100" value="82" disabled><span class="rangeValue">82%</span></td>
+            <td class="rangeContainer" title="83%"><input type="range" class="rangeInput" min="0" max="100" value="83" disabled><span class="rangeValue">83%</span></td>
+            <td class="rangeContainer" title="84%"><input type="range" class="rangeInput" min="0" max="100" value="84" disabled><span class="rangeValue">84%</span></td>
+            <td class="rangeContainer" title="85%"><input type="range" class="rangeInput" min="0" max="100" value="85" disabled><span class="rangeValue">85%</span></td>
+            <td class="rangeContainer" title="86%"><input type="range" class="rangeInput" min="0" max="100" value="86" disabled><span class="rangeValue">86%</span></td>
+            <td class="rangeContainer" title="87%"><input type="range" class="rangeInput" min="0" max="100" value="87" disabled><span class="rangeValue">87%</span></td>
+            <td class="rangeContainer" title="88%"><input type="range" class="rangeInput" min="0" max="100" value="88" disabled><span class="rangeValue">88%</span></td>
+            <td class="rangeContainer" title="89%"><input type="range" class="rangeInput" min="0" max="100" value="89" disabled><span class="rangeValue">89%</span></td>
+            <td class="rangeContainer" title="90%"><input type="range" class="rangeInput" min="0" max="100" value="90" disabled><span class="rangeValue">90%</span></td>
+            <td class="rangeContainer" title="91%"><input type="range" class="rangeInput" min="0" max="100" value="91" disabled><span class="rangeValue">91%</span></td>
+            <td class="rangeContainer" title="92%"><input type="range" class="rangeInput" min="0" max="100" value="92" disabled><span class="rangeValue">92%</span></td>
+            <td class="rangeContainer" title="93%"><input type="range" class="rangeInput" min="0" max="100" value="93" disabled><span class="rangeValue">93%</span></td>
+            <td class="rangeContainer" title="94%"><input type="range" class="rangeInput" min="0" max="100" value="94" disabled><span class="rangeValue">94%</span></td>
+            <td class="rangeContainer" title="95%"><input type="range" class="rangeInput" min="0" max="100" value="95" disabled><span class="rangeValue">95%</span></td>
+            <td class="rangeContainer" title="96%"><input type="range" class="rangeInput" min="0" max="100" value="96" disabled><span class="rangeValue">96%</span></td>
+            <td class="rangeContainer" title="97%"><input type="range" class="rangeInput" min="0" max="100" value="97" disabled><span class="rangeValue">97%</span></td>
+            <td class="rangeContainer" title="98%"><input type="range" class="rangeInput" min="0" max="100" value="98" disabled><span class="rangeValue">98%</span></td>
+            <td class="rangeContainer" title="99%"><input type="range" class="rangeInput" min="0" max="100" value="99" disabled><span class="rangeValue">99%</span></td>
+            <td class="rangeContainer" title="100%"><input type="range" class="rangeInput" min="0" max="100" value="100" disabled><span class="rangeValue">100%</span></td>
+        </table>
     </body>
     <script src="app.js"></script>
 </html>

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Input Range avec Valeur en Pourcentage</title>
+    <style>
+        /* Styles pour les couleurs personnalisées */
+        .orange { color: orange; }
+        .yellow { color: yellow; }
+        .green { color: green; }
+
+        /* Ajout de styles pour aligner verticalement l'input avec le texte du span */
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        th, td {
+            border: 1px solid #dddddd;
+            text-align: left;
+            padding: 8px;
+        }
+
+        /* Ajout d'un style pour que l'input et le span prennent toute la largeur de la cellule */
+        .rangeContainer {
+            width: 100%;
+        }
+
+        /* Ajoute une petite marge pour espacer l'input du texte */
+        .rangeInput {
+            width: calc(100% - 5px); /* 5px de moins pour compenser la marge de droite */
+            margin-right: 5px;
+        }
+    </style>
+</head>
+<body>
+    <table>
+        <tr>
+            <th>Valeurs</th>
+        </tr>
+        <!-- Utilise une table pour afficher les inputs et les spans -->
+        <tr>
+            <td class="rangeContainer">
+                <input type="range" class="rangeInput" min="0" max="100" value="75" disabled>
+                <span class="rangeValue">75%</span>
+            </td>
+        </tr>
+        <!-- Ajoute les autres inputs ici -->
+        <!-- ... -->
+        <tr>
+            <td class="rangeContainer">
+                <input type="range" class="rangeInput" min="0" max="100" value="100" disabled>
+                <span class="rangeValue">100%</span>
+            </td>
+        </tr>
+    </table>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // Appelle la fonction pour mettre à jour la couleur initiale
+            updateColorOnInit();
+        });
+
+        function updateColorOnInit() {
+            const rangeInputs = document.querySelectorAll('.rangeInput');
+
+            rangeInputs.forEach(function (input) {
+                const value = parseInt(input.value);
+                const span = input.nextElementSibling; // Le <span> qui suit l'input
+
+                // Applique la couleur en fonction de la valeur initiale
+                if (value <= 85) {
+                    span.classList.add('orange');
+                } else if (value <= 99) {
+                    span.classList.add('yellow');
+                } else {
+                    span.classList.add('green');
+                }
+            });
+        }
+    </script>
+</body>
+</html>

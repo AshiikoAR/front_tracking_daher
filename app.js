@@ -30,7 +30,6 @@ function closePopup() {
 // ==================================================================================================================== //
 function redirectToAjoutOpe() { // Lorsque l'utilisateur clique sur le bouton possédant l'attribut 'onclick="redirectToAjoutOpe()"'
   window.location.href = "ajout/ajoutOpe.html"; // On redirige l'utilisateur vers une autre page
-
 }
 
 
@@ -47,6 +46,7 @@ document.addEventListener("DOMContentLoaded", function () {
       }
     });
   });
+  updateColor();
 });
 
 
@@ -146,3 +146,33 @@ function filterTableResp() {
 // ======================================================================================================================
 // Code permettant de trier les listes d'activités/d'opérateurs dans des ordres différents (croissant, alphabétique, etc)
 // ======================================================================================================================
+
+// ???
+
+
+// ================================================================================================
+// Code permettant de changer la couleur de l'avancement de la journée (critique, quasi-fini, fini)
+// ================================================================================================
+/*document.addEventListener('DOMContentLoaded', function () {
+  // Appelle la fonction pour mettre à jour la couleur initiale
+  updateColor();
+});*/
+
+function updateColor() {
+  const rangeInputs = document.querySelectorAll('.rangeInput');
+  rangeInputs.forEach(function (input) {
+      const value = parseInt(input.value);
+      const span = input.nextElementSibling; // On séléctionne l'élément voisin : le <span> qui suit l'input
+      if (value <= 50) { // On applique la couleur en fonction de la valeur initiale
+        span.classList.add('red');
+      } else if (value <= 75) { // On applique la couleur en fonction de la valeur initiale
+        span.classList.add('chocolate');
+      } else if(value <= 85) { // On applique la couleur en fonction de la valeur initiale
+          span.classList.add('orange');
+      } else if (value <= 99) {
+          span.classList.add('yellow');
+      } else {
+          span.classList.add('green');
+      }
+  });
+}
