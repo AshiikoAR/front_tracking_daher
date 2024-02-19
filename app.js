@@ -161,29 +161,57 @@ function filterTableResp() {
 // Code permettant de changer la couleur de l'avancement de la journée (critique, quasi-fini, fini) //
 // ================================================================================================ //
 document.addEventListener('DOMContentLoaded', function () {
-  // Appelle la fonction pour mettre à jour la couleur initiale
-  updateColor();
+  updateColor();  // Appelle la fonction pour mettre à jour la couleur initiale
 });
 
 function updateColor() {
   const rangeInputs = document.querySelectorAll('.rangeInput');
   rangeInputs.forEach(function (input) {
       const value = parseInt(input.value);
-      const span = input.nextElementSibling; // On séléctionne l'élément voisin : le <span> qui suit l'input
-      if (value <= 0) { // On applique la couleur en fonction de la valeur initiale
-        span.classList.add('black');
-      } else if (value <= 25) { // On applique la couleur en fonction de la valeur initiale
-        span.classList.add('red');
-      } else if (value <= 50) { // On applique la couleur en fonction de la valeur initiale
-        span.classList.add('chocolate');
-      } else if (value <= 75) { // On applique la couleur en fonction de la valeur initiale
-        span.classList.add('orange');
-      } else if(value <= 85) { // On applique la couleur en fonction de la valeur initiale
-          span.classList.add('yellow');
-      } else if (value <= 99) {
-          span.classList.add('light-green');
-      } else {
-          span.classList.add('green');
+      const span = input.nextElementSibling;// On séléctionne l'élément voisin (le texte du <span> qui suit l'input)
+      if (value <= 0) {                     // Si l'avancement est nul (égal à 0%) :
+        span.classList.add('black');        // -> Couleur noire
+      } else if (value <= 25) {             // Si l'avancement est inférieur ou égal à 25% :
+        span.classList.add('red');          // -> Couleur rouge
+      } else if (value <= 50) {             // Si l'avancement est inférieur ou égal à 50% :
+        span.classList.add('chocolate');    // -> Couleur chocolat
+      } else if (value <= 75) {             // Si l'avancement est inférieur ou égal à 75% :
+        span.classList.add('orange');       // -> Couleur orange 
+      } else if(value <= 85) {              // Si l'avancement est inférieur ou égal à 85% :
+        span.classList.add('yellow');       // -> Couleur jaune
+      } else if (value <= 99) {             // Si l'avancement est inférieur ou égal à 99% : 
+        span.classList.add('light-green');  // -> Couleur verte claire
+      } else if (value == 100) {            // Si l'avancement est égal à 100% :
+        span.classList.add('green');        // -> Couleur verte
+      } else {                              // Si l'avancement est supérieur à 100% :
+        span.classList.add('blue');         // -> Couleur bleue
       }
   });
 }
+
+
+// =====================================================================================
+// Fonction permettant d'afficher uniquement les opérateurs dont le contrat est en cours
+// =====================================================================================
+function filtrerDates() {
+  const dateActuelle = new Date(); // On récupère la date actuelle
+  const dateActuelleTimestamp = dateActuelle.getTime();
+
+  const table = document.getElementById('table-aff'); // Récupération du tableau et des lignes
+  const tbody = table.getElementsByTagName('tbody')[0];
+  const lignes = tbody.getElementsByTagName('tr');
+
+  for (let i = 0; i < lignes.length; i++) { // On parcours les lignes du tableau
+    const ligne = lignes[i];
+    const cellules = ligne.getElementsByTagName('td');
+    const dateCellule = cellules[5].textContent.trim(); // 6ème colonne = index n°5
+
+    if (dateCellule === "Indéterminée" || new Date(dateCellule) >= dateActuelleTimestamp) { // Si la date est "Indéterminée" ou si elle est supérieure ou égale à la date actuelle
+      ligne.style.display = 'table-row'; // Soit on afficher la ligne
+    } else {
+      ligne.style.display = 'none'; // Soit on masque la ligne
+    }
+  }
+}
+
+document.addEventListener('DOMContentLoaded', filtrerDates); // Appel de la fonction lorsque le document est prêt
