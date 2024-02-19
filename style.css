@@ -215,6 +215,10 @@ body {
   align-items: center;
 }
 
+.sidebar .profile-details .name-job {
+  transition: all 1s ease;
+}
+
 .sidebar .profile-details img {
   height: 52px;
   width: 52px;
@@ -226,8 +230,6 @@ body {
 }
 
 .sidebar .profile-details a i { color: #FFF; }
-
-.sidebar .profile-details .twitter a i:hover { color: rgba(123, 134, 228);}
 	
 .sidebar.close .profile-details img { padding: 10px; }
 
@@ -236,6 +238,16 @@ body {
   font-size: 18px;
   font-weight: 500;
   white-space: nowrap;
+  padding-right: 100px;
+}
+
+.job a {
+  text-decoration: none;
+  color: #fff;
+}
+
+.job a:hover {
+  color: #1DA1F2;
 }
 
 .sidebar.close .profile-details i, .sidebar.close .profile-details .profile_name, .sidebar.close .profile-details .job { display: none; }
@@ -499,4 +511,4 @@ input::placeholder { text-align: center; }
 .yellow { color: gold;}
 .light-green { color: yellowgreen; }
 .green { color: green; }
-.blue { color: blue; }
+.blue { color: RoyalBlue; }

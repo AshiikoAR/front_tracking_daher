@@ -24,7 +24,7 @@
 			<ul class="nav-links">
 				<li>
 					<a href="../index.html">
-						<i class='bx bxs-dashboard'></i>
+						<i class='bx bx-tv'></i>
 						<span class="link_name">Dashboard</span>
 					</a>
 					<ul class="sub-menu blank">
@@ -2526,5 +2526,11 @@
 		
 		<!-- lien vers le javascript -->
 		<script src="../app.js"></script>
+        <script>
+            // Récupérer le nombre d'opérateurs
+            var nombreOperateurs = document.querySelectorAll('#table-aff tbody tr').length;
+            // Stocker le nombre d'opérateurs dans le stockage local
+            localStorage.setItem('nombreOperateurs', nombreOperateurs);
+        </script>
 	</body>
 </html>

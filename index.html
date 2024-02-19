@@ -24,7 +24,7 @@
 			<ul class="nav-links">
 				<li>
 					<a href="#">
-						<i class='bx bxs-dashboard'></i>
+						<i class='bx bx-tv'></i>
 						<span class="link_name">Dashboard</span>
 					</a>
 					<ul class="sub-menu blank">
@@ -72,6 +72,17 @@
 						<li><a class="link_name" href="support.html">Support</a></li>
 					</ul>
 				</li>
+				<li>
+					<div class="profile-details">
+						<div class="profile-content">
+							<img src="img/logotypes/chefequipe-logo.png" alt="profileImg" title ="Chef d'équipe">
+						</div>
+						<div class="name-job">
+							<div class="profile_name">Chef d'équipe</div>
+							<div class="job"><a href="">Se déconnecter</a></div>
+						</div>
+					</div>
+				</li>
 			</ul>
 		</div>
 		
@@ -80,7 +91,7 @@
 			<!-- Nom de page -->
 			<div class="home-content">
 				<i class='bx bx-menu' ></i>
-				<span class="text"><i class='bx bxs-dashboard' title="Dashboard"></i> &bull; Dashboard</span>
+				<span class="text" title="Tableau de bord"><i class='bx bxs-tv'></i> &bull; Dashboard</span>
 			</div>
 			<!-- Bloc contenant le pop-up de présentation -->
 			<div class="box" id="accueil-popup">
@@ -120,7 +131,7 @@
 			<div class="cardBox">
 				<div class="card" data-link="recherches/rech_ope.html" title="Nombre total d'opérateurs enregistrés dans la base de données">
 					<div>
-						<div class="numbers"><span style="color:red; font-weight: bolder;">[774]</span> opérateurs</div>
+						<div class="numbers"><span id="nombre-operateurs" style="color:red; font-weight: bolder;">[XX]</span> opérateurs</div>
 						<div class="cardName"><i class='bx bx-calendar'></i> &bull; <span class="date-JJMMAAAA">Jour. JJ/MM/AAAA</span></div>
 					</div>
 					<div class="iconBox">
@@ -245,5 +256,11 @@
 		
 		<!-- lien vers le javascript -->
 		<script src="app.js"></script>
+		<script>
+			// Récupérer le nombre d'opérateurs depuis le stockage local
+			var nombreOperateurs = localStorage.getItem('nombreOperateurs');
+			// Afficher le nombre d'opérateurs
+			document.getElementById('nombre-operateurs').textContent = "[" + nombreOperateurs + "]";
+		</script>
 	</body>
 </html>
