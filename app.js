@@ -25,6 +25,44 @@ function closePopup() {
 }
 
 
+// =================================================================================================== //
+// Fonctions permettant de récupérer la date du jour actuel et de l'afficher (sous différents formats) //
+// =================================================================================================== //
+function afficherDateJJMoisAAAA() {
+  const moisEnFrancais = ["janvier", "février", "mars", "avril", "mai", "juin", "juillet", "août", "septembre", "octobre", "novembre", "décembre"]; // Liste des mois en français
+  const spanDateDuJour = document.getElementById("date-JJMoisAAAA"); // On récupère l'élément ayant l'ID "date-du-jour"
+  const dateDuJour = new Date(); // On récupère la date du jour
+
+  const jour = dateDuJour.getDate(); // On extrait le jour, le mois et l'année
+  const mois = moisEnFrancais[dateDuJour.getMonth()];
+  const annee = dateDuJour.getFullYear();
+
+  const dateFormatee = "["+ jour + " " + mois + " " + annee +"]"; // On formate la date -> "JJ mois AAAA"
+  spanDateDuJour.textContent = dateFormatee; // On l'affiche dans l'élément HTML "date-du-jour"
+}
+
+function afficherDateJJMMAAAA() {
+  const joursSemaine = ['Dim.', 'Lun.', 'Mar.', 'Mer.', 'Jeu.', 'Ven.', 'Sam.']; // Liste des jours de la semaine en français
+  const dateActuelle = new Date(); // Récupération de la date du jour
+
+  const jourSemaine = joursSemaine[dateActuelle.getDay()]; // On récupère le jour de la semaine, le jour du mois, le mois et l'année
+  const jourMois = String(dateActuelle.getDate()).padStart(2, '0');
+  const mois = String(dateActuelle.getMonth() + 1).padStart(2, '0');
+  const annee = dateActuelle.getFullYear();
+
+  const dateFormatee = `${jourSemaine} ${jourMois}/${mois}/${annee}`; // On formate la date -> "Jour. JJ/MM/AAAA"
+  const spansDate = document.querySelectorAll('.date-JJMMAAAA'); // On prend tous les éléments span avec la classe "date-JJMMAAAA"
+
+  spansDate.forEach(span => {
+    span.textContent = dateFormatee;
+  });  // Modifier le contenu de chaque élément span avec la date formatée
+
+}
+
+document.addEventListener('DOMContentLoaded', afficherDateJJMoisAAAA); // Appeler la fonction pour afficher la date du jour lorsque le document est prêt
+document.addEventListener('DOMContentLoaded', afficherDateJJMMAAAA); // Appeler la fonction pour afficher la date du jour lorsque le document est prêt
+
+
 // =============================================================================================================== //
 // Fonction permettant de rediriger vers la page d'ajout d'opérateur lors que l'on clique sur Ajouter un opérateur // 
 // =============================================================================================================== //
@@ -193,7 +231,7 @@ function updateColor() {
 // =====================================================================================
 // Fonction permettant d'afficher uniquement les opérateurs dont le contrat est en cours
 // =====================================================================================
-function filtrerDates() {
+/*function filtrerDates() {
   const dateActuelle = new Date(); // On récupère la date actuelle
   const dateActuelleTimestamp = dateActuelle.getTime();
 
@@ -214,4 +252,4 @@ function filtrerDates() {
   }
 }
 
-document.addEventListener('DOMContentLoaded', filtrerDates); // Appel de la fonction lorsque le document est prêt
+document.addEventListener('DOMContentLoaded', filtrerDates); // Appel de la fonction lorsque le document est prêt*/
