@@ -38,7 +38,7 @@ body {
   width: 260px;
   background: #11101d;
   z-index: 100;
-  transition: all 0.5s ease;
+  transition: all 0.3s ease;
 }
 
 .sidebar.close { width: 78px; }
@@ -87,7 +87,7 @@ body {
 .sidebar .nav-links li {
   position: relative;
   list-style: none;
-  transition: all 0.4s ease;
+  transition: all 0.3s ease;
 }
 
 .sidebar .nav-links li:hover { background: #1d1b31; }
@@ -203,7 +203,7 @@ body {
   justify-content: space-between;
   background: #1d1b31;
   padding: 12px 0;
-  transition: all 0.5s ease;
+  transition: all 0.3s ease;
 }
 
 .sidebar.close .profile-details { background: none; }
@@ -216,7 +216,8 @@ body {
 }
 
 .sidebar .profile-details .name-job {
-  transition: all 1s ease;
+  transition: 0.3s ease;
+  transition-delay: 0.1s;
 }
 
 .sidebar .profile-details img {
@@ -226,7 +227,7 @@ body {
   border-radius: 16px;
   margin: 0 14px 0 12px;
   background: #1d1b31;
-  transition: all 0.5s ease;
+  transition: all 0.3s ease;
 }
 
 .sidebar .profile-details a i { color: #FFF; }
@@ -265,7 +266,7 @@ body {
   background: #E4E9F7;
   left: 260px;
   width: calc(100% - 260px);
-  transition: all 0.5s ease;
+  transition: all 0.4s ease;
 }
 
 .sidebar.close ~ .home-section {
