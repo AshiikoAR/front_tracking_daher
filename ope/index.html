@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+	<!-- en-tête -->
+	<head>
+		<title>Accueil &bull; TRACKING</title>
+		<meta charset="UTF-8"/>
+		<link href="https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css" rel='stylesheet'>
+		<link rel="stylesheet" href="style.css">
+		<link type="images/png" rel="shortcut icon" href="img/logotypes/white-logo.png">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	</head>
+	
+	<!-- page -->
+	<body>
+		<!-- menu sur le côté -->
+		<div class="sidebar close">
+			<div class="logo-details">
+				<a href="#">
+					<i class='bx bx-bar-chart-square' title="TRACKING &bull; DAHER Hub Ouest"></i>
+					<span class="logo_name">TRACKING</span>
+				</a>
+			</div>
+			<ul class="nav-links">
+				<li>
+					<a href="#">
+						<i class='bx bx-home-smile' ></i>
+						<span class="link_name">Accueil</span>
+					</a>
+					<ul class="sub-menu blank">
+						<li><a class="link_name" href="#">Accueil</a></li>
+					</ul>
+				</li>
+				<li>
+					<a href="avancement.html">
+						<i class='bx bx-alarm'></i>
+						<span class="link_name">Avancement</span>
+					</a>
+					<ul class="sub-menu blank">
+						<li><a class="link_name" href="avancement.html">Avancement</a></li>
+					</ul>
+				</li>
+				<li>
+					<a href="support.html">
+						<i class='bx bxs-buoy'></i>
+						<span class="link_name">Support</span>
+					</a>
+					<ul class="sub-menu blank">
+						<li><a class="link_name" href="support.html">Support</a></li>
+					</ul>
+				</li>
+				<li>
+					<div class="profile-details">
+						<div class="profile-content">
+							<img src="img/logotypes/chefequipe-logo.png" alt="profileImg" title ="Chef d'équipe">
+						</div>
+						<div class="name-job">
+							<div class="profile_name">Opérateur</div>
+							<div class="job"><a href="">Se déconnecter</a></div>
+						</div>
+					</div>
+				</li>
+			</ul>
+		</div>
+		
+		<!-- contenu de la page -->
+		<section class="home-section">
+			<!-- Nom de page -->
+			<div class="home-content">
+				<i class='bx bx-menu' ></i>
+				<span class="text" title="Tableau de bord"><i class='bx bxs-home-smile' ></i> &bull; Accueil</span>
+			</div>
+			<!-- Bloc contenant le pop-up de présentation -->
+			<div class="box" id="accueil-popup">
+				<div class="cardText">
+					<div class="cardHeader">
+						<h2><span style="color:red; font-weight: bolder;">[ACTI]</span> &bull; Choix d'une activité *</h2>
+					</div>
+					<br>
+					<fieldset>
+                        <legend>&ensp;<b>Plage horaire</b>&ensp;</legend>
+                        <div>
+                            <label for="filtre">
+                                <select id="filtre" name="filtre" style="width: 100%; margin-bottom: 5px;">
+                                    <option value="none">--</option>
+                                    <option value="">Quart matin</option>
+                                    <option value="">Journée normale</option>
+                                    <option value="">Quart soir</option>
+                                    <option value="">Nuit</option>
+                                    <option value="">Formation</option>
+                                </select>
+                            </label>
+							<br>
+                            <p><b>Plage horaire sélectionnée &bull;</b> <span style="color: red;">[ Choisir une plage ]</span></p> 
+                        </div>
+                    </fieldset>
+					<br>
+					<fieldset>
+                        <legend>&ensp;<b>Activité</b>&ensp;</legend>
+                        <div>
+                            <label for="filtre">
+                                <select id="filtre" name="filtre" style="width: 100%; margin-bottom: 5px;">
+                                    <option value="none">--</option>
+                                    <option value="">Réception / Rangement / Expéditions</option>
+                                    <option value="">Picking</option>
+                                    <option value="">Consolidation</option>
+                                    <option value="">Kardex</option>
+                                    <option value="">Gestion ordonnancement</option>
+									<option value="">Tamaris</option>
+                                    <option value="">Quais distribution</option>
+                                </select>
+                            </label>
+							<br>
+                            <p><b>Activitée sélectionnée &bull;</b> <span style="color: red;">[ Choisir une plage ]</span></p> 
+                        </div>
+                    </fieldset>
+					<br>
+					<fieldset>
+                        <legend>&ensp;<b>Sous-activité</b>&ensp;</legend>
+                        <div>
+                            <label for="filtre">
+                                <select id="filtre" name="filtre" style="width: 100%; margin-bottom: 5px;">
+                                    <option value="none">--</option>
+                                </select>
+                            </label>
+							<br>
+                            <p><b>Sous-activitée sélectionnée &bull;</b> <span style="color: red;">[ Choisir une plage ]</span></p> 
+                        </div>
+                    </fieldset>
+					<br>
+					<div style="text-align: center;">
+						<input type="button" value="Débuter la sous-activité" onclick="" />
+					</div>
+					<div style="text-align: end;">
+						<p style="font-size: smaller;">* Saisir les informations via liste déroulante ou scanner de code-barre</p>
+					</div>
+				</div>
+			</div>
+			<br>
+			<div class="box" id="footer">
+				<div class="cardText" style="text-align: center;">
+					<p><b><a href="#" class="txtLink"><i class='bx bxs-bar-chart-square' title="TRACKING &bull; DAHER Hub Ouest"></i> TRACKING</b></a> &bull; 2023 - 2024, Tous droits réservés. Ce site est affilié à <a href="https://www.daher.com/" class="txtLink">DAHER Hub Ouest <b>&copy;</b></a></p>
+					<p><b><a href="support.html" class="txtLink">Support</a> &bull; <a href="https://bit.ly/3f9Zk8d" class="txtLink">Politique de confidentialité</a></b></p>
+					<a href="https://www.daher.com/"><img src="img/logotypes/daher.png" alt="Logo DAHER SA" class="daher"></a>
+				</div>
+			</div>
+		</section>
+		
+		<!-- lien vers le javascript -->
+		<script src="app.js"></script>
+	</body>
+</html>
